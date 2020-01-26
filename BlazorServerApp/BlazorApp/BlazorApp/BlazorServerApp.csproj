@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\AuthorService.cs" />
+    <Compile Remove="Services\IAuthorService.cs" />
+    <Compile Remove="Services\IPublisherService.cs" />
+    <Compile Remove="Services\PublisherService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazored.SessionStorage" Version="1.0.11" />
     <PackageReference Include="EmbeddedBlazorContent" Version="1.9.0" />
     <PackageReference Include="MatBlazor" Version="1.9.0" />

@@ -1,16 +1,23 @@
 ﻿@page "/authors/authordetail/{authorId:int}"
 @page "/authors/authordetail"
 @page "/author"
-@inject IAuthorService authorService;
-@using BlazorServerApp.Data;
+@using BlazorServerApp.Data
+@using BlazorServerApp.Services
+@inject IBookStoresService<Author> bookStoresService
+
 
 <h3>Author Detail</h3>
 <hr />
 
 <div class="col-12 row">
-    <h5 class="col-12 row" style="font-weight:bold">@AuthorDetails.FirstName @AuthorDetails.LastName</h5>
-    <h6 class="col-12 row">Ph: @AuthorDetails.Phone</h6>
-    <h6 class="col-12 row">City: @AuthorDetails.City</h6>
+
+    @if (AuthorDetails != null)
+    {
+        <h5 class="col-12 row" style="font-weight:bold">@AuthorDetails.FirstName @AuthorDetails.LastName</h5>
+        <h6 class="col-12 row">Ph: @AuthorDetails.Phone</h6>
+        <h6 class="col-12 row">City: @AuthorDetails.City</h6>
+    }
+
 </div>
 
 @code {
@@ -21,9 +28,9 @@
     public Author AuthorDetails { get; set; }
     //public AuthorService authorService { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected async override Task OnInitializedAsync()
     {
         //authorService = new AuthorService();
-        AuthorDetails = await authorService.GetAuthorById(AuthorId);
+        AuthorDetails = await bookStoresService.GetByIdAsync("authors/", AuthorId);
     }
 }

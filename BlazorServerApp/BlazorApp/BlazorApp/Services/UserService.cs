@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using BlazorServerApp.Data;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,15 @@ namespace BlazorServerApp.Services
     public class UserService : IUserService
     {
         public HttpClient _httpClient { get; }
+        public AppSettings _appSettings { get; }
 
-        public UserService(HttpClient httpClient)
+        public UserService(HttpClient httpClient, IOptions<AppSettings> appSettings)
         {
+            _appSettings = appSettings.Value;
+
+            httpClient.BaseAddress = new Uri(_appSettings.BookStoresBaseAddress);
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "BlazorServer");
+
             _httpClient = httpClient;
         }
 
@@ -21,12 +28,12 @@ namespace BlazorServerApp.Services
         {
             string serializedUser = JsonConvert.SerializeObject(user);
 
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Login");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Users/Login");
             requestMessage.Content = new StringContent(serializedUser);
 
             requestMessage.Content.Headers.ContentType
                 = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-            
+
             var response = await _httpClient.SendAsync(requestMessage);
 
             var responseStatusCode = response.StatusCode;

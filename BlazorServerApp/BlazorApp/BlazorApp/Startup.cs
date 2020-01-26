@@ -33,20 +33,19 @@ namespace BlazorServerApp
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();            
+            services.AddSingleton<WeatherForecastService>();
 
-            services.AddSingleton<IAuthorService, AuthorService>();
-            services.AddSingleton<IPublisherService, PublisherService>();
-            services.AddBlazoredSessionStorage();
+            var appSettingSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingSection);
 
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            services.AddBlazoredSessionStorage();
 
-            services.AddHttpClient<IUserService, UserService>(x => 
-            {
-                x.BaseAddress = new Uri("https://localhost:44394/api/Users/");
-                x.DefaultRequestHeaders.Add("User-Agent", "BlazorServer");
-            });
-            
+            services.AddHttpClient<IUserService, UserService>();
+
+            services.AddHttpClient<IBookStoresService<Author>, BookStoresService<Author>>();
+            services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>();
+
             services.AddSingleton<HttpClient>();
         }
 

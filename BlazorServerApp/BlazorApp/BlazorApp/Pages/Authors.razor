@@ -1,10 +1,11 @@
 ﻿@page "/authors"
-@inject IAuthorService authorService;
-@inject IJSRuntime JSRuntime;
-@inject HttpClient Http;
-@implements IDisposable;
-@using BlazorServerApp.Data;
-
+@using BlazorServerApp.Data
+@using BlazorServerApp.Services
+@using CuriousDriveRazorLibrary
+@inject IBookStoresService<Author> bookStoresService
+@inject IJSRuntime JSRuntime
+@inject HttpClient Http
+@implements IDisposable
 
 <div class="col-12">
     <h3><b>Enter Author Information</b></h3>
@@ -31,20 +32,7 @@
         <br />
         <div class="col-12 row">
             <label class="col-2 font-weight-bold">city :</label>
-            @*<select @bind="author.City" class="form-control col-3">
-                    @if (@Cities != null)
-                    {
-                        <option value="">select city..</option>
-                        @foreach (var city in Cities)
-                        {
-                            <option value="@city">@city</option>
-                        }
-                    }
-                </select>*@
             <SelectCity></SelectCity>
-
-            @*<InputText class="form-control col-3" @bind-Value="author.City" placeholder="city" />
-                &nbsp;<ValidationMessage For="@(() => author.City)" />*@
         </div>
         <br />
         <div class="col-12 row">
@@ -65,17 +53,12 @@
             <span>&nbsp;</span>
             <input type="submit" class="form-control col-1 btn btn-primary" value="Clear" />
         </div>
-
     </EditForm>
-
 </div>
-
 <br />
-
 <div class="col-10">
 
     <h3><b>Authors</b></h3>
-
     <table class="table">
         <thead>
             <tr>
@@ -84,36 +67,28 @@
                 <th>Last Name</th>
                 @*<th>City</th>*@
                 <th>Email Address</th>
-                @*<th>Salary</th>*@
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @if (authorList != null)
+            @foreach (var author in authorList)
             {
-                @foreach (var author in authorList)
-                {
-                    <tr>
-                        <td>
-                            <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
-                                @author.AuthorId
-                            </NavLink>
-                        </td>
-                        <td>@author.FirstName</td>
-                        <td>@author.LastName</td>
-                        @*<td>@author.City</td>*@
-                        <td>@author.EmailAddress</td>
-                        @*<td>$@author.Salary</td>*@
-                        <td>
-                            <a style="text-underline-position:below; cursor:pointer; color:blue; font-weight:bold"
-                               @onclick="(() => EditAuthor(author))">Edit</a> |
-                            <a style="text-underline-position:below; cursor:pointer; color:blue; font-weight:bold"
-                               @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
-                        </td>
-                    </tr>
-                }
+                <tr>
+                    <td>
+                        <NavLink href=@string.Format("/authors/authordetail/{0}",@author.AuthorId)>
+                            @author.AuthorId
+                        </NavLink>
+                    </td>
+                    <td>@author.FirstName</td>
+                    <td>@author.LastName</td>
+                    @*<td>@author.City</td>*@
+                    <td>@author.EmailAddress</td>
+                    <th>
+                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> EditAuthor(author))">Edit</a> |
+                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> DeleteAuthor(author.AuthorId))">Delete</a>
+                    </th>
+                </tr>
             }
-
         </tbody>
     </table>
 </div>
@@ -122,6 +97,7 @@
 
     public Author author { get; set; }
     public List<Author> authorList { get; set; }
+    public string SelectedCity { get; set; }
 
     public bool IsVisible { get; set; }
     public bool Result { get; set; }
@@ -132,19 +108,10 @@
 
     protected override void OnInitialized()
     {
-        try
-        {
-            Console.WriteLine("Authors - OnInitialized");
-            base.OnInitialized();
+        Console.WriteLine("Authors - OnInitialized");
+        base.OnInitialized();
 
-            throw new Exception("OnInitializedException");
-        }
-        catch (Exception)
-        {
-
-            //throw;
-        }
-
+        //throw new Exception("OnInitialized");
     }
 
     protected override async Task OnInitializedAsync()
@@ -152,13 +119,8 @@
         Console.WriteLine("Authors - OnInitializedAsync");
 
         author = new Author();
-        //authorList = await authorService.GetAuthors();
-
         authorList = new List<Author>();
-        authorList = await Http.GetJsonAsync<List<Author>>("https://localhost:44394/api/authors");
-        authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
-
-        //authorList = null;
+        //authorList = await authorService.GetAuthors();
 
         await base.OnInitializedAsync();
     }
@@ -175,6 +137,14 @@
         await base.OnParametersSetAsync();
     }
 
+    protected override bool ShouldRender()
+    {
+        base.ShouldRender();
+        Console.WriteLine("Authors - ShouldRender");
+
+        return true;
+    }
+
     protected override void OnAfterRender(bool firstRender)
     {
         Console.WriteLine("Authors - OnAfterRender - firstRender = " + firstRender);
@@ -185,53 +155,31 @@
     {
         Console.WriteLine("Authors - OnAfterRenderAsync - firstRender = " + firstRender);
 
-        //if (firstRender && Cities == null)
-        //{
-        //    Cities = await JSRuntime.InvokeAsync<string[]>("getCities");
-
-        //    StateHasChanged();
-        //}
+        if (firstRender)
+            await LoadAuthors();
 
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    protected override bool ShouldRender()
-    {
-        Console.WriteLine("Authors - ShouldRender");
-        return base.ShouldRender();
-    }
-
     public void Dispose()
     {
-        try
-        {
-            Console.WriteLine("Authors - Dispose");
-            throw new Exception("DisposeException");
-        }
-        catch (Exception)
-        {
-
-            //throw;
-        }
-
+        Console.WriteLine("Authors - Dispose");
     }
 
     private async Task LoadAuthors()
     {
-        authorList = await Http.GetJsonAsync<List<Author>>("https://localhost:44394/api/authors");
+        authorList = await bookStoresService.GetAllAsync("authors/");
         authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
 
         StateHasChanged();
-
     }
 
     private async Task SaveAuthor()
     {
-        //Result = await authorService.SaveAuthor(author);
         if (author.AuthorId == 0)
-            await Http.PostJsonAsync("https://localhost:44394/api/authors", author);
+            await bookStoresService.SaveAsync("authors/", author);
         else
-            await Http.PutJsonAsync("https://localhost:44394/api/authors/" + author.AuthorId, author);
+            await bookStoresService.UpdateAsync("authors/", author.AuthorId, author);
 
         await LoadAuthors();
 
@@ -246,25 +194,15 @@
         author = new Author();
 
         //await JSRuntime.InvokeVoidAsync("saveMessage", firstName, lastName);
-        //await JSRuntime.InvokeVoidAsync("setFocusOnElement", firstNameTextBox);
+        await JSRuntime.InvokeVoidAsync("setFocusOnElement", firstNameTextBox);
     }
 
     private async Task DeleteAuthor(int authorId)
     {
-        try
-        {
-            throw new Exception("DeleteAuthorException");
+        await bookStoresService.DeleteAsync("authors/", authorId);
+        await LoadAuthors();
 
-            await Http.DeleteAsync("https://localhost:44394/api/authors/" + authorId);
-
-            await LoadAuthors();
-        }
-        catch (Exception)
-        {
-
-            //throw;
-        }
-
+        //throw new Exception("DeleteAuthor");
     }
 
     private void EditAuthor(Author argAuthor)
