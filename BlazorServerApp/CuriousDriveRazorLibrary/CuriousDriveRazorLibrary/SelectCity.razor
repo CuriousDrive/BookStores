@@ -1,0 +1,40 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime;
+
+<select @bind="CurrentCity" class="form-control col-3">
+    @if (@Cities != null)
+    {
+        <option value="">select city..</option>
+        @foreach (var city in Cities)
+        {
+            <option value="@city">@city</option>
+        }
+    }
+</select>
+
+@code {
+
+    [Parameter]
+    public string CurrentCity { get; set; }
+
+    public string[] Cities { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && Cities == null)
+        {
+            try
+            {
+                Cities = await JSRuntime.InvokeAsync<string[]>("getCities");
+
+                StateHasChanged();
+            }
+            catch (Exception)
+            {
+
+                //throw;
+            }
+            
+        }
+    }
+}

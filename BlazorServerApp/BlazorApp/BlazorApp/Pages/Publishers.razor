@@ -1,0 +1,124 @@
+﻿@page "/publishers"
+@inject IPublisherService publisherService;
+@inject HttpClient Http;
+@inject IJSRuntime JSRuntime;
+@using BlazorServerApp.Data;
+
+<div class="col-12">
+    <h3><b>Enter Publisher Information</b></h3>
+    <hr />
+    <ServerValidations IsVisible="IsVisible" Result="Result">
+        <span>Publisher : </span>@RecordName
+    </ServerValidations>
+
+    <EditForm Model="@publisher" OnValidSubmit="@SavePublisher">
+        @*<DataAnnotationsValidator />*@
+
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">first name :</label>
+            <input @ref="publisherNameTextBox" class="form-control col-3" @bind="publisher.Publisher_Name" placeholder="publisher's name" />
+            &nbsp;<ValidationMessage For="@(() => publisher.Publisher_Name)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">city :</label>
+            <SelectCity></SelectCity>
+            @*<InputText class="form-control col-3" @bind-Value="publisher.City" placeholder="city" />
+                &nbsp;<ValidationMessage For="@(() => publisher.City)" />*@
+        </div>
+        <br />
+        <div class="col-12 row">
+            <span class="col-2"></span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
+            <span>&nbsp;</span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Clear" />
+        </div>
+
+    </EditForm>
+
+</div>
+<br />
+<div class="col-6">
+
+    <h3><b>Publishers</b></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PublisherId</th>
+                <th>Publisher Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var publisher in publisherList)
+            {
+                <tr>
+                    <td>@publisher.Pub_Id</td>
+                    <td>@publisher.Publisher_Name</td>
+                    <td>@publisher.City</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*<MatTable Items="@publisherList" Striped="true" AllowSelection="true" RowClass="tester" class="mat-elevation-z5">
+        <MatTableHeader>
+            <th class="col-2">PublisherId</th>
+            <th class="col-6">Publisher Name</th>
+            <th class="col-4">City</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>@context.Pub_Id</td>
+            <td>@context.Publisher_Name</td>
+            <td>@context.City</td>
+        </MatTableRow>
+    </MatTable>*@
+</div>
+
+@code {
+
+    public Publisher publisher { get; set; }
+    public List<Publisher> publisherList { get; set; }
+    public string[] Cities { get; set; }
+    ElementReference publisherNameTextBox;
+
+    public bool IsVisible { get; set; }
+    public string RecordName { get; set; }
+    public bool Result { get; set; }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && Cities == null)
+        {
+            Cities = await JSRuntime.InvokeAsync<string[]>("getCities");
+            StateHasChanged();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        publisher = new Publisher();
+        publisherList = publisherService.GetPublishers();
+    }
+
+    private async Task SavePublisher()
+    {
+        Result = false;//publisherService.SavePublisher(publisher);
+        IsVisible = true;
+        RecordName = publisher.Publisher_Name;
+
+        publisher = new Publisher();
+
+        //await JSRuntime.InvokeVoidAsync("saveMessage",publisherName, "");
+        await JSRuntime.InvokeVoidAsync("setFocusOnElement", publisherNameTextBox);
+    }
+
+    public async Task DeletePublisher(string publisherId)
+    {
+        var confirm = await JSRuntime.InvokeAsync<bool>("confirmDelete");
+
+        if (confirm)
+            publisherService.DeletePublisher(publisherId);
+    }
+}
