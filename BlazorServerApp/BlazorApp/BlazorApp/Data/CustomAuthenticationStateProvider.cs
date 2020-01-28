@@ -10,7 +10,7 @@ namespace BlazorServerApp.Data
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
-        private ILocalStorageService _localStorageService;
+        private ILocalStorageService _localStorageService { get; }
 
         public CustomAuthenticationStateProvider(ILocalStorageService localStorageService)
         {

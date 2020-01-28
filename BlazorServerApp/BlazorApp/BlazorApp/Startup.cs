@@ -15,6 +15,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using BlazorServerApp.Services;
+using BlazorServerApp.Handlers;
 
 namespace BlazorServerApp
 {
@@ -38,13 +39,17 @@ namespace BlazorServerApp
             var appSettingSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingSection);
 
+            services.AddTransient<ValidateHeaderHandler>();
+
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddBlazoredLocalStorage();
 
             services.AddHttpClient<IUserService, UserService>();
 
             services.AddHttpClient<IBookStoresService<Author>, BookStoresService<Author>>();
-            services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>();
+            services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>()
+                    .AddHttpMessageHandler<ValidateHeaderHandler>();
+                    
 
             services.AddSingleton<HttpClient>();
         }

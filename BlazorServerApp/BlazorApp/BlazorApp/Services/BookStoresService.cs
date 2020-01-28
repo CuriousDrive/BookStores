@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
 
 namespace BlazorServerApp.Services
 {
@@ -13,10 +14,14 @@ namespace BlazorServerApp.Services
     {
         public HttpClient _httpClient { get; }
         public AppSettings _appSettings { get; }
+        public ILocalStorageService _localStorageService { get; }
 
-        public BookStoresService(HttpClient httpClient, IOptions<AppSettings> appSettings)
+        public BookStoresService(HttpClient httpClient
+            , IOptions<AppSettings> appSettings
+            , ILocalStorageService localStorageService)
         {
             _appSettings = appSettings.Value;
+            _localStorageService = localStorageService;
 
             httpClient.BaseAddress = new Uri(_appSettings.BookStoresBaseAddress);
             httpClient.DefaultRequestHeaders.Add("User-Agent", "BlazorServer");
@@ -38,12 +43,22 @@ namespace BlazorServerApp.Services
         public async Task<List<T>> GetAllAsync(string requestUri)
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
+
+            var token = await _localStorageService.GetItemAsync<string>("token");
+            requestMessage.Headers.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
             var response = await _httpClient.SendAsync(requestMessage);
 
             var responseStatusCode = response.StatusCode;
-            var responseBody = await response.Content.ReadAsStringAsync();
 
-            return await Task.FromResult(JsonConvert.DeserializeObject<List<T>>(responseBody));
+            if (responseStatusCode.ToString() == "OK")
+            {
+                var responseBody = await response.Content.ReadAsStringAsync();
+                return await Task.FromResult(JsonConvert.DeserializeObject<List<T>>(responseBody));
+            }
+            else
+                return null;
         }
 
         public async Task<T> GetByIdAsync(string requestUri, int Id)

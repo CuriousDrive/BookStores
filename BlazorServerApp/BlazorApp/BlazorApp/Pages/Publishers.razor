@@ -37,19 +37,20 @@
 </div>
 <br />
 <div class="col-6">
+
     <h3><b>Publishers</b></h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>PublisherId</th>
-                <th>Publisher Name</th>
-                <th>City</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (publisherList != null)
-            {
+    @if (publisherList != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>PublisherId</th>
+                    <th>Publisher Name</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach (var publisher in publisherList)
                 {
                     <tr>
@@ -57,14 +58,18 @@
                         <td>@publisher.PublisherName</td>
                         <td>@publisher.City</td>
                         <th>
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> EditPublisher(publisher))">Edit</a> |
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> DeletePublisher(publisher.PubId))">Delete</a>
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
                         </th>
                     </tr>
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <span>You may not to be authorized to see this information</span>
+    }
 
     @*<MatTable Items="@publisherList" Striped="true" AllowSelection="true"
                   RowClass="tester" class="mat-elevation-z5">
@@ -79,7 +84,6 @@
                 <td>@context.City</td>
             </MatTableRow>
         </MatTable>*@
-
 </div>
 
 @code {
@@ -109,7 +113,9 @@
     private async Task LoadPublishers()
     {
         publisherList = await bookStoresService.GetAllAsync("publishers/");
-        publisherList = publisherList.OrderByDescending(auth => auth.PubId).ToList();
+
+        if (publisherList != null)
+            publisherList = publisherList.OrderByDescending(auth => auth.PubId).ToList();
 
         StateHasChanged();
     }
