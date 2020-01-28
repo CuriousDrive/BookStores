@@ -61,7 +61,7 @@
             await localStorageService.SetItemAsync("token", returnedUser.Token);
 
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
-            NavigationManager.NavigateTo("/index");
+            NavigationManager.NavigateTo("/");
         }
         else
         {
