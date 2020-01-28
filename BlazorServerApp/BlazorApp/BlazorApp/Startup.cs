@@ -13,7 +13,7 @@ using BlazorServerApp.Data;
 using EmbeddedBlazorContent;
 using System.Net.Http;
 using Microsoft.AspNetCore.Components.Authorization;
-using Blazored.SessionStorage;
+using Blazored.LocalStorage;
 using BlazorServerApp.Services;
 
 namespace BlazorServerApp
@@ -39,7 +39,7 @@ namespace BlazorServerApp
             services.Configure<AppSettings>(appSettingSection);
 
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
-            services.AddBlazoredSessionStorage();
+            services.AddBlazoredLocalStorage();
 
             services.AddHttpClient<IUserService, UserService>();
 

@@ -2,7 +2,7 @@
 @using BlazorServerApp.Data
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject Blazored.LocalStorage.ILocalStorageService localStorageService
 
 <EditForm Model="@user" OnValidSubmit="@ValidateUser">
     <div>
@@ -51,7 +51,7 @@
         ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
         NavigationManager.NavigateTo("/index");
 
-        await sessionStorage.SetItemAsync("emailAddress", user.EmailAddress);
+        await localStorageService.SetItemAsync("emailAddress", user.EmailAddress);
 
         return await Task.FromResult(true);
     }

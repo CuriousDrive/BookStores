@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\BlazorServerApp",
     "\\BookStoresWebAPI"
   ],
-  "SelectedNode": "\\BookStoresWebAPI\\BookStoresWebAPI.sln",
+  "SelectedNode": "\\BlazorServerApp\\BlazorApp.sln",
   "PreviewInSolutionExplorer": false
 }

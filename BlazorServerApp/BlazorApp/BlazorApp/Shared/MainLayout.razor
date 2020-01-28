@@ -10,10 +10,10 @@
     <div class="top-row px-4">      
         <AuthorizeView>
             <Authorized>
-                <a href="/" @onclick="(() => Logout())">Logout</a>
+                <a href="/login" @onclick="(() => Logout())">Logout</a>
             </Authorized>
             <NotAuthorized>
-                <a href="/">Login</a>
+                <a href="/login">Login</a>
             </NotAuthorized>
         </AuthorizeView>
         

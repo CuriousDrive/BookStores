@@ -1,10 +1,10 @@
-﻿@page  "/"
+﻿@page  "/login"
 @using BlazorServerApp.Data
 @using Newtonsoft.Json
 @using BlazorServerApp.Services
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject Blazored.LocalStorage.ILocalStorageService localStorageService
 @inject IUserService userService
 
 <EditForm Model="@user" OnValidSubmit="@ValidateUser">
@@ -57,8 +57,8 @@
         
         if(returnedUser.EmailAddress != null)
         {
-            await sessionStorage.SetItemAsync("emailAddress", returnedUser.EmailAddress);
-            await sessionStorage.SetItemAsync("token", returnedUser.Token);
+            await localStorageService.SetItemAsync("emailAddress", returnedUser.EmailAddress);
+            await localStorageService.SetItemAsync("token", returnedUser.Token);
 
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
             NavigationManager.NavigateTo("/index");

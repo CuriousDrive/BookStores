@@ -47,17 +47,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Blazored.SessionStorage": {
+            "Blazored.LocalStorage": {
               "target": "Package",
-              "version": "[1.0.11, )"
+              "version": "[2.1.1, )"
             },
             "EmbeddedBlazorContent": {
               "target": "Package",
-              "version": "[1.9.0, )"
+              "version": "[1.10.0, )"
             },
             "MatBlazor": {
               "target": "Package",
-              "version": "[1.9.0, )"
+              "version": "[2.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

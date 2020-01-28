@@ -1,4 +1,4 @@
-﻿using Blazored.SessionStorage;
+﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
@@ -10,17 +10,17 @@ namespace BlazorServerApp.Data
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
-        private ISessionStorageService _sessionStorageService;
+        private ILocalStorageService _localStorageService;
 
-        public CustomAuthenticationStateProvider(ISessionStorageService sessionStorageService)
+        public CustomAuthenticationStateProvider(ILocalStorageService localStorageService)
         {
             //throw new Exception("CustomAuthenticationStateProviderException");
-            _sessionStorageService = sessionStorageService;
+            _localStorageService = localStorageService;
         }
         
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            var emailAddress = await _sessionStorageService.GetItemAsync<string>("emailAddress");
+            var emailAddress = await _localStorageService.GetItemAsync<string>("emailAddress");
             ClaimsIdentity identity;
 
             if (emailAddress != null)
@@ -54,8 +54,8 @@ namespace BlazorServerApp.Data
 
         public void MarkUserAsLoggedOut()
         {
-            _sessionStorageService.RemoveItemAsync("emailAddress");
-            _sessionStorageService.RemoveItemAsync("token");
+            _localStorageService.RemoveItemAsync("emailAddress");
+            _localStorageService.RemoveItemAsync("token");
 
             var identity = new ClaimsIdentity();
 
