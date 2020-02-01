@@ -9,5 +9,6 @@ namespace BlazorServerApp.Services
     interface IUserService
     {
         public Task<User> LoginAsync(User user);
+        public Task<User> RefreshTokenAsync(RefreshRequest refreshRequest);
     }
 }

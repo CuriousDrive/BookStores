@@ -24,9 +24,9 @@
     {
         await base.OnInitializedAsync();
 
-        var emailAddress = await localStorageService.GetItemAsync<string>("emailAddress");
+        var accessToken = await localStorageService.GetItemAsync<string>("accessToken");
 
-        if (emailAddress == null)
+        if (accessToken == null)
             navigationManager.NavigateTo("/login");
     }
 }

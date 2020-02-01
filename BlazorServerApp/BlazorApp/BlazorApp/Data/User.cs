@@ -20,6 +20,7 @@ namespace BlazorServerApp.Data
         public int PubId { get; set; }
         public DateTime HireDate { get; set; }
         public string ConfirmPassword { get; set; }
-        public string Token { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

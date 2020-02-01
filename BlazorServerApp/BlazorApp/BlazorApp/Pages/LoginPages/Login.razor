@@ -56,9 +56,9 @@
         var returnedUser = await userService.LoginAsync(user);
         
         if(returnedUser.EmailAddress != null)
-        {
-            await localStorageService.SetItemAsync("emailAddress", returnedUser.EmailAddress);
-            await localStorageService.SetItemAsync("token", returnedUser.Token);
+        {   
+            await localStorageService.SetItemAsync("accessToken", returnedUser.AccessToken);            
+            await localStorageService.SetItemAsync("refreshToken", returnedUser.RefreshToken);            
 
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
             NavigationManager.NavigateTo("/");

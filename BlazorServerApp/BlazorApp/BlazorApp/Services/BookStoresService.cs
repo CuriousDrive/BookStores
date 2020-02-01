@@ -44,7 +44,7 @@ namespace BlazorServerApp.Services
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
 
-            var token = await _localStorageService.GetItemAsync<string>("token");
+            var token = await _localStorageService.GetItemAsync<string>("accessToken");
             requestMessage.Headers.Authorization
                 = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 

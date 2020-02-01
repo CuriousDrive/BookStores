@@ -55,7 +55,7 @@ namespace BlazorServerApp.Data
         public void MarkUserAsLoggedOut()
         {
             _localStorageService.RemoveItemAsync("emailAddress");
-            _localStorageService.RemoveItemAsync("token");
+            _localStorageService.RemoveItemAsync("accessToken");
 
             var identity = new ClaimsIdentity();
 

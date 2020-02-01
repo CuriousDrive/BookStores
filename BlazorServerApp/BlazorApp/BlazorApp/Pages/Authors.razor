@@ -2,9 +2,11 @@
 @using BlazorServerApp.Data
 @using BlazorServerApp.Services
 @using CuriousDriveRazorLibrary
+@using Blazored.LocalStorage
 @inject IBookStoresService<Author> bookStoresService
+@inject IUserService userService
+@inject ILocalStorageService localStorageService
 @inject IJSRuntime JSRuntime
-@inject HttpClient Http
 @implements IDisposable
 
 <div class="col-12">
@@ -31,7 +33,7 @@
         </div>
         <br />
         <div class="col-12 row">
-            <label class="col-2 font-weight-bold">city :</label>
+            <label class="col-2 font-weight-bold">city :</label>            
             <SelectCity></SelectCity>
         </div>
         <br />
@@ -59,38 +61,46 @@
 <div class="col-10">
 
     <h3><b>Authors</b></h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>AuthorId</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                @*<th>City</th>*@
-                <th>Email Address</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var author in authorList)
-            {
+    @if (authorList != null)
+    {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <NavLink href=@string.Format("/authors/authordetail/{0}",@author.AuthorId)>
-                            @author.AuthorId
-                        </NavLink>
-                    </td>
-                    <td>@author.FirstName</td>
-                    <td>@author.LastName</td>
-                    @*<td>@author.City</td>*@
-                    <td>@author.EmailAddress</td>
-                    <th>
-                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> EditAuthor(author))">Edit</a> |
-                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(()=> DeleteAuthor(author.AuthorId))">Delete</a>
-                    </th>
+                    <th>AuthorId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    @*<th>City</th>*@
+                    <th>Email Address</th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var author in authorList)
+                {
+                    <tr>
+                        <td>
+                            <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
+                                @author.AuthorId
+                            </NavLink>
+                        </td>
+                        <td>@author.FirstName</td>
+                        <td>@author.LastName</td>
+                        @*<td>@author.City</td>*@
+                        <td>@author.EmailAddress</td>
+                        <th>
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    { 
+        <NoResultMessage></NoResultMessage>
+    }
+
 </div>
 
 @code {
@@ -169,7 +179,18 @@
     private async Task LoadAuthors()
     {
         authorList = await bookStoresService.GetAllAsync("authors/");
-        authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
+
+        if (authorList == null)
+        {
+            RefreshRequest refreshRequest = new RefreshRequest();
+            refreshRequest.AccessToken = await localStorageService.GetItemAsync<string>("accessToken");
+            refreshRequest.RefreshToken = await localStorageService.GetItemAsync<string>("refreshToken");
+
+            var user1 = await userService.RefreshTokenAsync(refreshRequest);
+            await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
+
+            authorList = await bookStoresService.GetAllAsync("authors/");
+        }
 
         StateHasChanged();
     }
