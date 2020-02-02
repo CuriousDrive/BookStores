@@ -21,7 +21,10 @@ https://www.youtube.com/playlist?list=PL4WEkbdagHIR0RBe_P4bai64UDqZEbQap
 If you have any questions on how this project is setup then you can reach out to us on below handles.
 
 https://twitter.com/curious_drive
+
 https://www.facebook.com/curiousdrive/
+
 https://www.youtube.com/c/curiousdrive
+
 
 Let us know how it goes. 
