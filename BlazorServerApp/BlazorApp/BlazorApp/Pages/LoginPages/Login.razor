@@ -60,7 +60,7 @@
             await localStorageService.SetItemAsync("accessToken", returnedUser.AccessToken);            
             await localStorageService.SetItemAsync("refreshToken", returnedUser.RefreshToken);            
 
-            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser.EmailAddress);
             NavigationManager.NavigateTo("/");
         }
         else

@@ -42,14 +42,14 @@ namespace BlazorServerApp
             services.AddTransient<ValidateHeaderHandler>();
 
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            
             services.AddBlazoredLocalStorage();
-
             services.AddHttpClient<IUserService, UserService>();
 
-            services.AddHttpClient<IBookStoresService<Author>, BookStoresService<Author>>();
+            services.AddHttpClient<IBookStoresService<Author>, BookStoresService<Author>>()
+                    .AddHttpMessageHandler<ValidateHeaderHandler>();
             services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>()
                     .AddHttpMessageHandler<ValidateHeaderHandler>();
-                    
 
             services.AddSingleton<HttpClient>();
         }

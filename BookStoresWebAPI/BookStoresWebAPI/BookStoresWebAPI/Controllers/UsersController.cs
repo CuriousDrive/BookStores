@@ -50,15 +50,13 @@ namespace BookStoresWebAPI.Controllers
             return user;
         }
 
-        // GET: api/Users
+        // POST: api/Users
         [HttpPost("Login")]
         public async Task<ActionResult<UserWithToken>> Login([FromBody] User user)
         {
-            user = await _context.Users
-                                .Include(u => u.Job)
-                            .Where(u => u.EmailAddress == user.EmailAddress
-                                && u.Password == user.Password)
-                            .FirstOrDefaultAsync();
+            user = await _context.Users.Where(u => u.EmailAddress == user.EmailAddress
+                                                && u.Password == user.Password)
+                                                .FirstOrDefaultAsync();
 
             UserWithToken userWithToken = null;
 
@@ -71,6 +69,35 @@ namespace BookStoresWebAPI.Controllers
                 userWithToken = new UserWithToken(user);
                 userWithToken.RefreshToken = refreshToken.Token;
             }                
+
+            if (userWithToken == null)
+            {
+                return NotFound();
+            }
+
+            //sign your token here here..
+            userWithToken.AccessToken = GenerateAccessToken(user.UserId);
+            return userWithToken;
+        }
+
+        // POST: api/Users
+        [HttpPost("RegisterUser")]
+        public async Task<ActionResult<UserWithToken>> RegisterUser([FromBody] User user)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            UserWithToken userWithToken = null;
+
+            if (user != null)
+            {
+                RefreshToken refreshToken = GenerateRefreshToken();
+                user.RefreshTokens.Add(refreshToken);
+                await _context.SaveChangesAsync();
+
+                userWithToken = new UserWithToken(user);
+                userWithToken.RefreshToken = refreshToken.Token;
+            }
 
             if (userWithToken == null)
             {
@@ -96,6 +123,20 @@ namespace BookStoresWebAPI.Controllers
                 return userWithToken;
             }
             
+            return null;
+        }
+
+        // GET: api/Users
+        [HttpPost("GetUserByAccessToken")]
+        public async Task<ActionResult<User>> GetUserByAccessToken([FromBody] string accessToken)
+        {
+            User user = GetUserFromAccessToken(accessToken);
+
+            if (user != null)
+            {
+                return user;
+            }
+
             return null;
         }
 
@@ -168,7 +209,7 @@ namespace BookStoresWebAPI.Controllers
                 {
                     new Claim(ClaimTypes.Name, Convert.ToString(userId))
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(7),
+                Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature)
             };

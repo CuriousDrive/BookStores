@@ -233,7 +233,7 @@ namespace BookStoresWebAPI.Models
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.RefreshTokens)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__RefreshTo__user___52AE4273");
+                    .HasConstraintName("FK__RefreshTo__user___60FC61CA");
             });
 
             modelBuilder.Entity<Sale>(entity =>
@@ -321,7 +321,7 @@ namespace BookStoresWebAPI.Models
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK_user_id")
+                    .HasName("PK_user_id_2")
                     .IsClustered(false);
 
                 entity.ToTable("User");
@@ -329,12 +329,12 @@ namespace BookStoresWebAPI.Models
                 entity.Property(e => e.UserId).HasColumnName("user_id");
 
                 entity.Property(e => e.EmailAddress)
+                    .IsRequired()
                     .HasColumnName("email_address")
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .IsRequired()
                     .HasColumnName("first_name")
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -353,7 +353,6 @@ namespace BookStoresWebAPI.Models
                     .HasDefaultValueSql("((10))");
 
                 entity.Property(e => e.LastName)
-                    .IsRequired()
                     .HasColumnName("last_name")
                     .HasMaxLength(30)
                     .IsUnicode(false);
@@ -365,21 +364,30 @@ namespace BookStoresWebAPI.Models
                     .IsFixedLength();
 
                 entity.Property(e => e.Password)
+                    .IsRequired()
                     .HasColumnName("password")
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PubId).HasColumnName("pub_id");
+                entity.Property(e => e.PubId)
+                    .HasColumnName("pub_id")
+                    .HasDefaultValueSql("((1))");
+
+                entity.Property(e => e.Source)
+                    .IsRequired()
+                    .HasColumnName("source")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Job)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.JobId)
-                    .HasConstraintName("FK__User2__job_id__5C6CB6D7");
+                    .HasConstraintName("FK__User2__job_id__5F141958");
 
                 entity.HasOne(d => d.Pub)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.PubId)
-                    .HasConstraintName("FK__User2__pub_id__5D60DB10");
+                    .HasConstraintName("FK__User2__pub_id__60083D91");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -33,6 +33,10 @@ namespace BlazorServerApp.Services
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Delete, requestUri + Id);
 
+            var token = await _localStorageService.GetItemAsync<string>("accessToken");
+            requestMessage.Headers.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
             var response = await _httpClient.SendAsync(requestMessage);
 
             var responseStatusCode = response.StatusCode;
@@ -64,6 +68,11 @@ namespace BlazorServerApp.Services
         public async Task<T> GetByIdAsync(string requestUri, int Id)
         {
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri + Id);
+
+            var token = await _localStorageService.GetItemAsync<string>("accessToken");
+            requestMessage.Headers.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
             var response = await _httpClient.SendAsync(requestMessage);
 
             var responseStatusCode = response.StatusCode;
@@ -77,8 +86,13 @@ namespace BlazorServerApp.Services
             string serializedUser = JsonConvert.SerializeObject(obj);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri);
-            requestMessage.Content = new StringContent(serializedUser);
 
+            var token = await _localStorageService.GetItemAsync<string>("accessToken");
+            requestMessage.Headers.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            requestMessage.Content = new StringContent(serializedUser);
+            
             requestMessage.Content.Headers.ContentType
                 = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
@@ -97,6 +111,10 @@ namespace BlazorServerApp.Services
             string serializedUser = JsonConvert.SerializeObject(obj);
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Put, requestUri + Id);
+            var token = await _localStorageService.GetItemAsync<string>("accessToken");
+            requestMessage.Headers.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
             requestMessage.Content = new StringContent(serializedUser);
 
             requestMessage.Content.Headers.ContentType

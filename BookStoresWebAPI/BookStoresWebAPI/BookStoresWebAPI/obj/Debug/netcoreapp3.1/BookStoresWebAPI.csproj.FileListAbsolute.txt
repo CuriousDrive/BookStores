@@ -142,6 +142,8 @@ C:\Data\CuriousDrive\EntityFrameworkDBFirst\BookStoresWebAPI\BookStoresWebAPI\bi
 C:\Data\CuriousDrive\EntityFrameworkDBFirst\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Data\CuriousDrive\EntityFrameworkDBFirst\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Data\CuriousDrive\EntityFrameworkDBFirst\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\EFCorePluralizer.cs
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -256,7 +258,6 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
@@ -270,12 +271,10 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.csprojAssemblyReference.cache
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\staticwebassets\BookStoresWebAPI.StaticWebAssets.Manifest.cache
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\staticwebassets\BookStoresWebAPI.StaticWebAssets.xml
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.csproj.CoreCompileInputs.cache
@@ -288,3 +287,4 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.pdb
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.genruntimeconfig.cache
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Debug\netcoreapp3.1\BookStoresWebAPI.csprojAssemblyReference.cache

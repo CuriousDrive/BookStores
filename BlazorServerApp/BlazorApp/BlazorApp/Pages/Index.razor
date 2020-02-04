@@ -4,15 +4,12 @@
 @inject NavigationManager navigationManager
 @inject ILocalStorageService localStorageService
 
-<h1>Hello, world!</h1>
-<p>Welcome to your new app</p>
-
 <AuthorizeView>
     <Authorized>
-        <p>Welcome, @context.User.Identity.Name</p>
+        <h3>Welcome, <b>@context.User.Identity.Name</b></h3>
     </Authorized>
     <NotAuthorized>
-        <p>You are signed out!!!</p>
+        <h3>You are signed out!!!</h3>
     </NotAuthorized>
 </AuthorizeView>
 

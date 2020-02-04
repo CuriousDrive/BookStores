@@ -42,13 +42,7 @@
             <InputText class="form-control col-3" @bind-Value="author.EmailAddress" placeholder="email address" />
             &nbsp;<ValidationMessage For="@(() => author.EmailAddress)" />
         </div>
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">salary :</label>
-            <InputNumber class="form-control col-3" @bind-Value="author.Salary" />
-            &nbsp;<ValidationMessage For="@(() => author.Salary)" />
-        </div>
-        <br />
+        <br />        
         <div class="col-12 row">
             <span class="col-2"></span>
             <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
