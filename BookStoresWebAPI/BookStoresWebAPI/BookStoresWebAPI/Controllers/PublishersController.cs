@@ -36,8 +36,7 @@ namespace BookStoresWebAPI.Controllers
             var publishers = await _context.Publishers
                                             .Include(pub => pub.Books)
                                                 .ThenInclude(book => book.Sales)
-                                            .Include(pub => pub.Users)
-                                                .ThenInclude(user => user.Job)
+                                            .Include(pub => pub.Users)                                                
                                             .Where(pub => pub.PubId == id)
                                             .FirstOrDefaultAsync();
 
@@ -93,8 +92,7 @@ namespace BookStoresWebAPI.Controllers
             var publishers = await _context.Publishers
                                             .Include(pub => pub.Books)
                                                 .ThenInclude(book => book.Sales)
-                                            .Include(pub => pub.Users)
-                                                .ThenInclude(user => user.Job)
+                                            .Include(pub => pub.Users)                                                
                                             .Where(pub => pub.PubId == publisher.PubId)
                                             .FirstOrDefaultAsync();
 

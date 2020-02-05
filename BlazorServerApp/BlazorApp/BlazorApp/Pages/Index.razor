@@ -19,10 +19,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await base.OnInitializedAsync();
-
-        var accessToken = await localStorageService.GetItemAsync<string>("accessToken");
-
+        await base.OnInitializedAsync();        
+        
+        var accessToken = await localStorageService.GetItemAsync<string>("accessToken");        
+        
         if (accessToken == null)
             navigationManager.NavigateTo("/login");
     }

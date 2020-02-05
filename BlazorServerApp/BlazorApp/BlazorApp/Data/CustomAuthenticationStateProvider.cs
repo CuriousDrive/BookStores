@@ -24,16 +24,17 @@ namespace BlazorServerApp.Data
         
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            var accessToken = await _localStorageService.GetItemAsync<string>("accessToken");            
-            User user = await _userService.GetUserByAccessTokenAsync(accessToken);
+            var accessToken = await _localStorageService.GetItemAsync<string>("accessToken");           
             
             ClaimsIdentity identity;
 
-            if (user != null)
+            if (accessToken != null && accessToken != string.Empty)
             {
+                User user = await _userService.GetUserByAccessTokenAsync(accessToken);
                 identity = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, user.EmailAddress),
+                    new Claim(ClaimTypes.Role, "Admin")
                 }, "apiauth_type");
             }
             else
@@ -42,6 +43,7 @@ namespace BlazorServerApp.Data
             }          
 
             var claimsPrincipal = new ClaimsPrincipal(identity);
+            
 
             return await Task.FromResult(new AuthenticationState(claimsPrincipal));
         }
@@ -51,16 +53,16 @@ namespace BlazorServerApp.Data
             var identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Name, emailAddress),
-            }, "apiauth_type");
+            }, "apiauth_type");            
 
-            var user = new ClaimsPrincipal(identity);
+            var claimsPrincipal = new ClaimsPrincipal(identity);
 
-            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(claimsPrincipal)));
         }
 
         public void MarkUserAsLoggedOut()
         {
-            _localStorageService.RemoveItemAsync("emailAddress");
+            _localStorageService.RemoveItemAsync("refreshToken");
             _localStorageService.RemoveItemAsync("accessToken");
 
             var identity = new ClaimsIdentity();

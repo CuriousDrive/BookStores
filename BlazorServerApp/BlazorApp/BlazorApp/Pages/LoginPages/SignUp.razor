@@ -67,9 +67,7 @@
         else
         {
             LoginMesssage = "Invalid username or password";
-        }
-
-        await localStorageService.SetItemAsync("emailAddress", user.EmailAddress);
+        }        
 
         return await Task.FromResult(true);
     }

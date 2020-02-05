@@ -17,8 +17,6 @@ namespace BookStoresWebAPI.Models
             this.FirstName = user.FirstName;
             this.MiddleName = user.MiddleName;
             this.LastName = user.LastName;
-            this.JobId = user.JobId;
-            this.JobLevel = user.JobLevel;
             this.PubId = user.PubId;
             this.HireDate = user.HireDate;
         }

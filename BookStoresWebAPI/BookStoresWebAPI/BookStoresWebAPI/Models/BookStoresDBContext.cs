@@ -21,6 +21,7 @@ namespace BookStoresWebAPI.Models
         public virtual DbSet<Job> Jobs { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -236,6 +237,20 @@ namespace BookStoresWebAPI.Models
                     .HasConstraintName("FK__RefreshTo__user___60FC61CA");
             });
 
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("Role");
+
+                entity.Property(e => e.RoleId).HasColumnName("role_id");
+
+                entity.Property(e => e.RoleDesc)
+                    .IsRequired()
+                    .HasColumnName("role_desc")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('New Position - title not formalized yet')");
+            });
+
             modelBuilder.Entity<Sale>(entity =>
             {
                 entity.ToTable("Sale");
@@ -344,14 +359,6 @@ namespace BookStoresWebAPI.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.JobId)
-                    .HasColumnName("job_id")
-                    .HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.JobLevel)
-                    .HasColumnName("job_level")
-                    .HasDefaultValueSql("((10))");
-
                 entity.Property(e => e.LastName)
                     .HasColumnName("last_name")
                     .HasMaxLength(30)
@@ -373,21 +380,25 @@ namespace BookStoresWebAPI.Models
                     .HasColumnName("pub_id")
                     .HasDefaultValueSql("((1))");
 
+                entity.Property(e => e.RoleId)
+                    .HasColumnName("role_id")
+                    .HasDefaultValueSql("((1))");
+
                 entity.Property(e => e.Source)
                     .IsRequired()
                     .HasColumnName("source")
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Job)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.JobId)
-                    .HasConstraintName("FK__User2__job_id__5F141958");
-
                 entity.HasOne(d => d.Pub)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.PubId)
                     .HasConstraintName("FK__User2__pub_id__60083D91");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK__User__role_id__6E565CE8");
             });
 
             OnModelCreatingPartial(modelBuilder);
