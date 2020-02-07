@@ -57,18 +57,15 @@
         var returnedUser = await userService.RegisterUserAsync(user);
 
         if(returnedUser.EmailAddress != null)
-        {
-            await localStorageService.SetItemAsync("accessToken", returnedUser.AccessToken);
-            await localStorageService.SetItemAsync("refreshToken", returnedUser.RefreshToken);
-
-            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser.EmailAddress);
+        {   
+            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
             NavigationManager.NavigateTo("/");
         }
         else
         {
             LoginMesssage = "Invalid username or password";
         }        
-
+        
         return await Task.FromResult(true);
     }
 

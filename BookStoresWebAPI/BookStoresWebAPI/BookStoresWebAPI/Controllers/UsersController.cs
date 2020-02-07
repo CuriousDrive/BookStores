@@ -50,13 +50,29 @@ namespace BookStoresWebAPI.Controllers
             return user;
         }
 
+        // GET: api/Users/5
+        [HttpGet("GetUserDetails/{id}")]
+        public async Task<ActionResult<User>> GetUserDetails(int id)
+        {
+            var user = await _context.Users.Include(u => u.Role)
+                                            .Where(u => u.UserId == id)
+                                            .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
         // POST: api/Users
         [HttpPost("Login")]
         public async Task<ActionResult<UserWithToken>> Login([FromBody] User user)
         {
-            user = await _context.Users.Where(u => u.EmailAddress == user.EmailAddress
-                                                && u.Password == user.Password)
-                                                .FirstOrDefaultAsync();
+            user = await _context.Users.Include(u => u.Role)
+                                        .Where(u => u.EmailAddress == user.EmailAddress
+                                                && u.Password == user.Password).FirstOrDefaultAsync();
 
             UserWithToken userWithToken = null;
 
@@ -68,7 +84,7 @@ namespace BookStoresWebAPI.Controllers
 
                 userWithToken = new UserWithToken(user);
                 userWithToken.RefreshToken = refreshToken.Token;
-            }                
+            }
 
             if (userWithToken == null)
             {
@@ -86,6 +102,10 @@ namespace BookStoresWebAPI.Controllers
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
+            //load role for registered user
+            user = await _context.Users.Include(u => u.Role)
+                                        .Where(u => u.UserId == user.UserId).FirstOrDefaultAsync();
 
             UserWithToken userWithToken = null;
 
@@ -178,7 +198,8 @@ namespace BookStoresWebAPI.Controllers
             {
                 var userId = principle.FindFirst(ClaimTypes.Name)?.Value;
 
-                return _context.Users.Where(usr => usr.UserId == Convert.ToInt32(userId)).FirstOrDefault();
+                return _context.Users.Include(u => u.Role)
+                                    .Where(u => u.UserId == Convert.ToInt32(userId)).FirstOrDefault();
             }
 
             return null;

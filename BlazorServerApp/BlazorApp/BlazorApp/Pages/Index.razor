@@ -13,6 +13,15 @@
     </NotAuthorized>
 </AuthorizeView>
 
+<AuthorizeView Roles="Publisher">
+    <Authorized>
+        <h3><b>You are a Publisher</b></h3>
+    </Authorized>
+    <NotAuthorized>
+        <h3>You are not a Publisher</h3>
+    </NotAuthorized>
+</AuthorizeView>
+
 @*<Component1></Component1>*@
 
 @code {

@@ -31,29 +31,24 @@ namespace BlazorServerApp.Data
             if (accessToken != null && accessToken != string.Empty)
             {
                 User user = await _userService.GetUserByAccessTokenAsync(accessToken);
-                identity = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, user.EmailAddress),
-                    new Claim(ClaimTypes.Role, "Admin")
-                }, "apiauth_type");
+                identity = GetClaimsIdentity(user);
             }
             else
             {
                 identity = new ClaimsIdentity();
             }          
 
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-            
+            var claimsPrincipal = new ClaimsPrincipal(identity);            
 
             return await Task.FromResult(new AuthenticationState(claimsPrincipal));
         }
 
-        public void MarkUserAsAuthenticated(string emailAddress)
+        public async void MarkUserAsAuthenticated(User user)
         {
-            var identity = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimTypes.Name, emailAddress),
-            }, "apiauth_type");            
+            await _localStorageService.SetItemAsync("accessToken", user.AccessToken);
+            await _localStorageService.SetItemAsync("refreshToken", user.RefreshToken);
+
+            var identity = GetClaimsIdentity(user);
 
             var claimsPrincipal = new ClaimsPrincipal(identity);
 
@@ -70,6 +65,17 @@ namespace BlazorServerApp.Data
             var user = new ClaimsPrincipal(identity);
 
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));
+        }
+
+        private ClaimsIdentity GetClaimsIdentity(User user)
+        {
+            var claimsIdentity = new ClaimsIdentity(new[]
+                                {
+                                    new Claim(ClaimTypes.Name, user.EmailAddress),
+                                    new Claim(ClaimTypes.Role, user.Role.RoleDesc)
+                                }, "apiauth_type");
+
+            return claimsIdentity;
         }
     }
 }

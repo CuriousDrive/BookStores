@@ -7,6 +7,7 @@ namespace BookStoresWebAPI.Models
 {
     public class UserWithToken : User
     {
+        
         public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
 
@@ -19,6 +20,8 @@ namespace BookStoresWebAPI.Models
             this.LastName = user.LastName;
             this.PubId = user.PubId;
             this.HireDate = user.HireDate;
+
+            this.Role = user.Role;
         }
     }
 }
