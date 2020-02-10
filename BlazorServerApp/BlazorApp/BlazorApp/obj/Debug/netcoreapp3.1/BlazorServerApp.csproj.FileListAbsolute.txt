@@ -66,3 +66,5 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\ne
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.csproj.CopyComplete
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.pdb
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs

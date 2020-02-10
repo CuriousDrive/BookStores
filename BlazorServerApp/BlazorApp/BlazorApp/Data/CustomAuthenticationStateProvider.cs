@@ -69,13 +69,27 @@ namespace BlazorServerApp.Data
 
         private ClaimsIdentity GetClaimsIdentity(User user)
         {
-            var claimsIdentity = new ClaimsIdentity(new[]
+            var claimsIdentity = new ClaimsIdentity();
+
+            if (user.EmailAddress != null)
+            { 
+                claimsIdentity = new ClaimsIdentity(new[]
                                 {
-                                    new Claim(ClaimTypes.Name, user.EmailAddress),
-                                    new Claim(ClaimTypes.Role, user.Role.RoleDesc)
+                                    new Claim(ClaimTypes.Name, user.EmailAddress),                                   
+                                    new Claim(ClaimTypes.Role, user.Role.RoleDesc),
+                                    new Claim("IsUserEmployedBefore1990", IsUserEmployedBefore1990(user))
                                 }, "apiauth_type");
+            }
 
             return claimsIdentity;
+        }
+
+        private string IsUserEmployedBefore1990(User user)
+        {
+            if (user.HireDate.Value.Year < 1990)
+                return "true";
+            else
+                return "false";
         }
     }
 }

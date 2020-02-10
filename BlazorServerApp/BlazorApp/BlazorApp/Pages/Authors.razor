@@ -65,7 +65,7 @@
                     <th>Last Name</th>
                     @*<th>City</th>*@
                     <th>Email Address</th>                    
-                    <AuthorizeView Roles="Publisher">
+                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
                         <Authorized>
                             <th>Actions</th>
                         </Authorized>
@@ -85,7 +85,7 @@
                     <td>@author.LastName</td>
                     @*<td>@author.City</td>*@
                     <td>@author.EmailAddress</td>                   
-                    <AuthorizeView Roles="Publisher">
+                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
                         <Authorized>
                             <th>
                                 <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |

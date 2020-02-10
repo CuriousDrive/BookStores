@@ -178,31 +178,38 @@ namespace BookStoresWebAPI.Controllers
 
         private User GetUserFromAccessToken(string accessToken)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_jwtsettings.SecretKey);
-
-            var tokenValidationParameters = new TokenValidationParameters
+            try
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false                
-            };
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes(_jwtsettings.SecretKey);
 
-            SecurityToken securityToken;
-            var principle = tokenHandler.ValidateToken(accessToken, tokenValidationParameters, out securityToken);
+                var tokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
 
-            JwtSecurityToken jwtSecurityToken = securityToken as JwtSecurityToken;
+                SecurityToken securityToken;
+                var principle = tokenHandler.ValidateToken(accessToken, tokenValidationParameters, out securityToken);
 
-            if (jwtSecurityToken != null && jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                JwtSecurityToken jwtSecurityToken = securityToken as JwtSecurityToken;
+
+                if (jwtSecurityToken != null && jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    var userId = principle.FindFirst(ClaimTypes.Name)?.Value;
+
+                    return _context.Users.Include(u => u.Role)
+                                        .Where(u => u.UserId == Convert.ToInt32(userId)).FirstOrDefault();
+                }
+            }
+            catch (Exception)
             {
-                var userId = principle.FindFirst(ClaimTypes.Name)?.Value;
-
-                return _context.Users.Include(u => u.Role)
-                                    .Where(u => u.UserId == Convert.ToInt32(userId)).FirstOrDefault();
+                return new User();
             }
 
-            return null;
+            return new User();
         }
 
         private RefreshToken GenerateRefreshToken()

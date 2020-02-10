@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using BlazorServerApp.Services;
 using BlazorServerApp.Handlers;
+using System.Security.Claims;
 
 namespace BlazorServerApp
 {
@@ -51,7 +52,12 @@ namespace BlazorServerApp
             services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>()
                     .AddHttpMessageHandler<ValidateHeaderHandler>();
 
-            services.AddSingleton<HttpClient>();
+            services.AddAuthorization(options => 
+            {
+                options.AddPolicy("SeniorEmployee", policy => 
+                    policy.RequireClaim("IsUserEmployedBefore1990","true"));
+            }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
