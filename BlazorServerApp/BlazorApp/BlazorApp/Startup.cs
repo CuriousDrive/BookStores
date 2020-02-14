@@ -17,6 +17,8 @@ using Blazored.LocalStorage;
 using BlazorServerApp.Services;
 using BlazorServerApp.Handlers;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace BlazorServerApp
 {
@@ -52,12 +54,32 @@ namespace BlazorServerApp
             services.AddHttpClient<IBookStoresService<Publisher>, BookStoresService<Publisher>>()
                     .AddHttpMessageHandler<ValidateHeaderHandler>();
 
+            services.AddSingleton<HttpClient>();
+
             services.AddAuthorization(options => 
             {
                 options.AddPolicy("SeniorEmployee", policy => 
                     policy.RequireClaim("IsUserEmployedBefore1990","true"));
-            }
-            );
+            });
+
+            services.AddMvc();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie()
+            .AddTwitter(twitterOptions => 
+            {
+                twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                twitterOptions.RetrieveUserDetails = true;
+                twitterOptions.Events.OnRemoteFailure = (context) =>
+                {
+                    context.HandleResponse();
+                    return context.Response.WriteAsync("<script>window.close();</script>");
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,9 +97,7 @@ namespace BlazorServerApp
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseEmbeddedBlazorContent(typeof(MatBlazor.BaseMatComponent).Assembly);
+            app.UseStaticFiles();            
         
             app.UseRouting();
 
@@ -88,6 +108,7 @@ namespace BlazorServerApp
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

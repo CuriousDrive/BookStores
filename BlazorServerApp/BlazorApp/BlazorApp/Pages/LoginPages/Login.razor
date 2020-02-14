@@ -6,6 +6,7 @@
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService
 @inject IUserService userService
+@inject IJSRuntime jsRunTime
 
 <EditForm Model="@user" OnValidSubmit="@ValidateUser">
     <div>
@@ -31,10 +32,16 @@
         <a href="/signup" class="col-3">Sign up</a>
     </div>
     <br />
+    <div class="col-12 row">
+        <span class="col-12"></span>
+        <a class="btn btn-block btn-social btn-twitter" @onclick="() => TwitterLogin()">
+            <span class="fa fa-twitter"></span> Sign in with Twitter
+        </a>
+    </div>
+    <br />
     <div class="col-12 row" style="text-align:left; font-weight:bold">
         <span class="col-12">@LoginMesssage</span>
     </div>
-
 </EditForm>
 
 @code {
@@ -54,8 +61,8 @@
         //call an API
 
         var returnedUser = await userService.LoginAsync(user);
-        
-        if(returnedUser.EmailAddress != null)
+
+        if (returnedUser.EmailAddress != null)
         {
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
             NavigationManager.NavigateTo("/");
@@ -68,4 +75,8 @@
         return await Task.FromResult(true);
     }
 
+    private async Task TwitterLogin()
+    {
+        NavigationManager.NavigateTo("user/signintwitter", true);
+    }
 }

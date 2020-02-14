@@ -55,9 +55,13 @@
               "target": "Package",
               "version": "[1.10.0, )"
             },
-            "MatBlazor": {
+            "Microsoft.AspNetCore.Authentication.Twitter": {
               "target": "Package",
-              "version": "[2.0.0, )"
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

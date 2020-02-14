@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BlazorServerApp.Services;
+using System.Net.Http;
 
 namespace BlazorServerApp.Data
 {
@@ -13,17 +14,23 @@ namespace BlazorServerApp.Data
     {
         public ILocalStorageService _localStorageService { get; }
         public IUserService _userService { get; set; }
+        private readonly HttpClient _httpClient;
 
         public CustomAuthenticationStateProvider(ILocalStorageService localStorageService, 
-            IUserService userService)
+            IUserService userService,
+            HttpClient httpClient)
         {
             //throw new Exception("CustomAuthenticationStateProviderException");
             _localStorageService = localStorageService;
             _userService = userService;
+            _httpClient = httpClient;
         }
         
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
+            //let's try to get twitter user info here..
+            var twitterUser = await _httpClient.GetAsync("https://localhost:44391/user");
+            
             var accessToken = await _localStorageService.GetItemAsync<string>("accessToken");           
             
             ClaimsIdentity identity;

@@ -1,0 +1,17 @@
+﻿@page  "/twitterprofile"
+@inject HttpClient _httpClient
+
+<AuthorizeView>
+    <Authorized>
+        <p>You are in</p>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        var twitterUser = await _httpClient.GetAsync("https://localhost:44391/user");
+        //return base.OnInitializedAsync();
+    }
+}
