@@ -49,7 +49,7 @@ namespace BlazorServerApp.Data
             return await Task.FromResult(new AuthenticationState(claimsPrincipal));
         }
 
-        public async void MarkUserAsAuthenticated(User user)
+        public async Task MarkUserAsAuthenticated(User user)
         {
             await _localStorageService.SetItemAsync("accessToken", user.AccessToken);
             await _localStorageService.SetItemAsync("refreshToken", user.RefreshToken);
@@ -61,10 +61,10 @@ namespace BlazorServerApp.Data
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(claimsPrincipal)));
         }
 
-        public void MarkUserAsLoggedOut()
+        public async Task MarkUserAsLoggedOut()
         {
-            _localStorageService.RemoveItemAsync("refreshToken");
-            _localStorageService.RemoveItemAsync("accessToken");
+            await _localStorageService.RemoveItemAsync("refreshToken");
+            await _localStorageService.RemoveItemAsync("accessToken");
 
             var identity = new ClaimsIdentity();
 

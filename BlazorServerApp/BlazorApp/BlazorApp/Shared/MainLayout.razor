@@ -27,8 +27,8 @@
 </div>
 
 @code{
-    public void Logout()
+    public async Task Logout()
     {
-        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
+        await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
     }
 }

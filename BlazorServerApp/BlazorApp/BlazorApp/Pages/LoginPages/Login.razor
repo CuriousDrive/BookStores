@@ -57,7 +57,7 @@
 
         if (returnedUser.EmailAddress != null)
         {
-            ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
+            await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
             NavigationManager.NavigateTo("/index");
         }
         else
