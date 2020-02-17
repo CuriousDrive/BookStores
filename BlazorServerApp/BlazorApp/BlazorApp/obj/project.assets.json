@@ -24,18 +24,6 @@
           "lib/netcoreapp3.1/EmbeddedBlazorContent.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.Twitter/3.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "Microsoft.AspNetCore.Authorization/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -1981,20 +1969,6 @@
         "embeddedblazorcontent.1.10.0.nupkg.sha512",
         "embeddedblazorcontent.nuspec",
         "lib/netcoreapp3.1/EmbeddedBlazorContent.dll"
-      ]
-    },
-    "Microsoft.AspNetCore.Authentication.Twitter/3.1.1": {
-      "sha512": "4vP0GwUey6ntRMXx63LXhaqzM8FQi/UPwneXz/bEf69F7kwHhaSznU381PvKwXVe0n37TrrroRs9/UbuxeO26Q==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authentication.twitter/3.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.dll",
-        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.xml",
-        "microsoft.aspnetcore.authentication.twitter.3.1.1.nupkg.sha512",
-        "microsoft.aspnetcore.authentication.twitter.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/3.0.0": {
@@ -6395,7 +6369,6 @@
       "Blazored.LocalStorage >= 2.1.1",
       "CuriousDriveRazorLibrary >= 1.0.0",
       "EmbeddedBlazorContent >= 1.10.0",
-      "Microsoft.AspNetCore.Authentication.Twitter >= 3.1.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
       "Newtonsoft.Json >= 12.0.3"
     ]
@@ -6455,10 +6428,6 @@
           "EmbeddedBlazorContent": {
             "target": "Package",
             "version": "[1.10.0, )"
-          },
-          "Microsoft.AspNetCore.Authentication.Twitter": {
-            "target": "Package",
-            "version": "[3.1.1, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",

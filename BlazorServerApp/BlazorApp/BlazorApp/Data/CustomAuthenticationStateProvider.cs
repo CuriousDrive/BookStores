@@ -7,14 +7,16 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BlazorServerApp.Services;
 using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 
 namespace BlazorServerApp.Data
 {
     public class CustomAuthenticationStateProvider : AuthenticationStateProvider
     {
         public ILocalStorageService _localStorageService { get; }
-        public IUserService _userService { get; set; }
-        private readonly HttpClient _httpClient;
+        public IUserService _userService { get; set; }        
+        private readonly HttpClient _httpClient;        
 
         public CustomAuthenticationStateProvider(ILocalStorageService localStorageService, 
             IUserService userService,
@@ -27,10 +29,7 @@ namespace BlazorServerApp.Data
         }
         
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
-        {
-            //let's try to get twitter user info here..
-            var twitterUser = await _httpClient.GetAsync("https://localhost:44391/user");
-            
+        {   
             var accessToken = await _localStorageService.GetItemAsync<string>("accessToken");           
             
             ClaimsIdentity identity;

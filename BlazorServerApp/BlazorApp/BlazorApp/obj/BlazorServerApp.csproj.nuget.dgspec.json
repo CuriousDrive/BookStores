@@ -55,10 +55,6 @@
               "target": "Package",
               "version": "[1.10.0, )"
             },
-            "Microsoft.AspNetCore.Authentication.Twitter": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"

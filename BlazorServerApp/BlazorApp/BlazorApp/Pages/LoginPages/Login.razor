@@ -1,4 +1,4 @@
-﻿@page  "/login"
+﻿@page  "/"
 @using BlazorServerApp.Data
 @using Newtonsoft.Json
 @using BlazorServerApp.Services
@@ -32,13 +32,6 @@
         <a href="/signup" class="col-3">Sign up</a>
     </div>
     <br />
-    <div class="col-12 row">
-        <span class="col-12"></span>
-        <a class="btn btn-block btn-social btn-twitter" @onclick="() => TwitterLogin()">
-            <span class="fa fa-twitter"></span> Sign in with Twitter
-        </a>
-    </div>
-    <br />
     <div class="col-12 row" style="text-align:left; font-weight:bold">
         <span class="col-12">@LoginMesssage</span>
     </div>
@@ -65,7 +58,7 @@
         if (returnedUser.EmailAddress != null)
         {
             ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(returnedUser);
-            NavigationManager.NavigateTo("/");
+            NavigationManager.NavigateTo("/index");
         }
         else
         {
@@ -75,8 +68,4 @@
         return await Task.FromResult(true);
     }
 
-    private async Task TwitterLogin()
-    {
-        NavigationManager.NavigateTo("user/signintwitter", true);
-    }
 }

@@ -18,16 +18,16 @@
 
     private async Task FindOutAboutUser()
     {
+        
+        
         var user = (await authenticationStateTask).User;
 
         if (user.IsInRole("Publisher"))
             IsUserPublisher = true;
-        else
-            IsUserPublisher = false;
 
         if ((await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
             IsSeniorEmployee = true;
-        else
-            IsSeniorEmployee = false;
+        
+
     }
 }

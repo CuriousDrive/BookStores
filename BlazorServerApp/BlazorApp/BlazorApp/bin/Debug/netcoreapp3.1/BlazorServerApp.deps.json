@@ -27,7 +27,6 @@
           "Blazored.LocalStorage": "2.1.1",
           "CuriousDriveRazorLibrary": "1.0.0",
           "EmbeddedBlazorContent": "1.10.0",
-          "Microsoft.AspNetCore.Authentication.Twitter": "3.1.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
           "Newtonsoft.Json": "12.0.3",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -344,17 +343,6 @@
         },
         "compile": {
           "lib/netcoreapp3.1/EmbeddedBlazorContent.dll": {}
-        }
-      },
-      "Microsoft.AspNetCore.Authentication.Twitter/3.1.1": {
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.dll": {
-            "assemblyVersion": "3.1.1.0",
-            "fileVersion": "3.100.119.61510"
-          }
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/3.0.0": {
@@ -3340,13 +3328,6 @@
       "sha512": "sha512-LgsO3NdCNwGdB/k+RbOBTevBtfAoA35ooBR1fi6bXX7OPt/tpV3B5b/i5jNe+1ZSvCWqnoL9WobxyZKnDwELeA==",
       "path": "embeddedblazorcontent/1.10.0",
       "hashPath": "embeddedblazorcontent.1.10.0.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Authentication.Twitter/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4vP0GwUey6ntRMXx63LXhaqzM8FQi/UPwneXz/bEf69F7kwHhaSznU381PvKwXVe0n37TrrroRs9/UbuxeO26Q==",
-      "path": "microsoft.aspnetcore.authentication.twitter/3.1.1",
-      "hashPath": "microsoft.aspnetcore.authentication.twitter.3.1.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/3.0.0": {
       "type": "package",

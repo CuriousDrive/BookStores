@@ -60,26 +60,7 @@ namespace BlazorServerApp
             {
                 options.AddPolicy("SeniorEmployee", policy => 
                     policy.RequireClaim("IsUserEmployedBefore1990","true"));
-            });
-
-            services.AddMvc();
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-            .AddCookie()
-            .AddTwitter(twitterOptions => 
-            {
-                twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
-                twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
-                twitterOptions.RetrieveUserDetails = true;
-                twitterOptions.Events.OnRemoteFailure = (context) =>
-                {
-                    context.HandleResponse();
-                    return context.Response.WriteAsync("<script>window.close();</script>");
-                };
-            });
+            });            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -102,13 +83,12 @@ namespace BlazorServerApp
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();
-            
+            app.UseAuthorization();            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/_Host");
-                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapFallbackToPage("/_Host");                
             });
         }
     }

@@ -1,38 +1,26 @@
-﻿@page "/"
+﻿@page "/index"
 @using BlazorServerApp.Data
 @using Blazored.LocalStorage
 @inject NavigationManager navigationManager
 @inject ILocalStorageService localStorageService
 
-<AuthorizeView>
+<AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
     <Authorized>
-        <h3>Welcome, <b>@context.User.Identity.Name</b></h3>
+        <h3><b>You are a Publisher & SeniorEmployee</b></h3>
     </Authorized>
     <NotAuthorized>
-        <h3>You are signed out!!!</h3>
+        <h3>You are not authorized</h3>
     </NotAuthorized>
 </AuthorizeView>
-
-<AuthorizeView Roles="Publisher">
-    <Authorized>
-        <h3><b>You are a Publisher</b></h3>
-    </Authorized>
-    <NotAuthorized>
-        <h3>You are not a Publisher</h3>
-    </NotAuthorized>
-</AuthorizeView>
-
-@*<Component1></Component1>*@
 
 @code {
 
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        await base.OnInitializedAsync();        
-        
-        var accessToken = await localStorageService.GetItemAsync<string>("accessToken");        
-        
-        if (accessToken == null)
-            navigationManager.NavigateTo("/login");
+        var user = (await authenticationStateTask).User;
     }
+
 }

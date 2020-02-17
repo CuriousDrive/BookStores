@@ -49,7 +49,6 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\ne
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.pdb
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TwitterProfile.razor.g.cs
-C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Twitter.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -141,3 +140,5 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\ne
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.csproj.CoreCompileInputs.cache
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorApp\BlazorApp\obj\Debug\netcoreapp3.1\BlazorServerApp.genruntimeconfig.cache
