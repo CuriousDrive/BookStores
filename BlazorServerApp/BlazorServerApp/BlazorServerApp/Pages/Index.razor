@@ -6,21 +6,12 @@
 @inject ILocalStorageService localStorageService
 @inject IAuthorizationService authorizationService
 
-@*<AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-        <Authorized>
-            <h3><b>You are a Publisher & SeniorEmployee</b></h3>
-        </Authorized>
-        <NotAuthorized>
-            <h3>You are not authorized</h3>
-        </NotAuthorized>
-    </AuthorizeView>*@
-
 @if (IsUserAuthenticated)
 {
     <h3><b>@user.Identity.Name</b> is logged in!!!</h3>
     <br />
     <p>Is Publisher : @IsPublisher</p>
-    <p>Is Senior Employee : @IsSeniorEmployee</p>
+    <p>Is Senior Employee : @IsSeniorEmployee</p>    
 }
 else
 {

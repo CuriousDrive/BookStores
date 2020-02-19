@@ -37,8 +37,7 @@
 
 </div>
 <br />
-<div class="col-6">
-
+<div class="col-8">
     <h3><b>Publishers</b></h3>
     @if (publisherList != null)
     {
@@ -72,19 +71,6 @@
         <NoResultMessage></NoResultMessage>
     }
 
-    @*<MatTable Items="@publisherList" Striped="true" AllowSelection="true"
-                  RowClass="tester" class="mat-elevation-z5">
-            <MatTableHeader>
-                <th>PublisherId</th>
-                <th>Publisher Name</th>
-                <th>City</th>
-            </MatTableHeader>
-            <MatTableRow>
-                <td>@context.Pub_Id</td>
-                <td>@context.Publisher_Name</td>
-                <td>@context.City</td>
-            </MatTableRow>
-        </MatTable>*@
 </div>
 
 @code {
@@ -114,9 +100,6 @@
     private async Task LoadPublishers()
     {
         publisherList = await bookStoresService.GetAllAsync("publishers/");
-
-        if (publisherList != null)
-            publisherList = publisherList.OrderByDescending(auth => auth.PubId).ToList();
 
         StateHasChanged();
     }

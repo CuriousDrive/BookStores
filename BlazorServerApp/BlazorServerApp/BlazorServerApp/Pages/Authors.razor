@@ -33,7 +33,7 @@
         </div>
         <br />
         <div class="col-12 row">
-            <label class="col-2 font-weight-bold">city :</label>            
+            <label class="col-2 font-weight-bold">city :</label>
             <SelectCity></SelectCity>
         </div>
         <br />
@@ -42,7 +42,7 @@
             <InputText class="form-control col-3" @bind-Value="author.EmailAddress" placeholder="email address" />
             &nbsp;<ValidationMessage For="@(() => author.EmailAddress)" />
         </div>
-        <br />        
+        <br />
         <div class="col-12 row">
             <span class="col-2"></span>
             <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
@@ -52,55 +52,58 @@
     </EditForm>
 </div>
 <br />
-<div class="col-10">
-
+<div class="col-8">
     <h3><b>Authors</b></h3>
+
     @if (authorList != null)
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>AuthorId</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    @*<th>City</th>*@
-                    <th>Email Address</th>                    
-                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                        <Authorized>
-                            <th>Actions</th>
-                        </Authorized>
-                    </AuthorizeView>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var author in authorList)
-                {
-                <tr>
-                    <td>
-                        <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
-                            @author.AuthorId
-                        </NavLink>
-                    </td>
-                    <td>@author.FirstName</td>
-                    <td>@author.LastName</td>
-                    @*<td>@author.City</td>*@
-                    <td>@author.EmailAddress</td>                   
-                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                        <Authorized>
-                            <th>
-                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
-                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
-                            </th>
-                        </Authorized>
-                    </AuthorizeView>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th>AuthorId</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        @*<th>City</th>*@
+                        <th>Email Address</th>
+                        <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                            <Authorized>
+                                <th>Actions</th>
+                            </Authorized>
+                        </AuthorizeView>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var author in authorList)
+                    {
+                        <tr>
+                            <td>
+                                <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
+                                    @author.AuthorId
+                                </NavLink>
+                            </td>
+                            <td>@author.FirstName</td>
+                            <td>@author.LastName</td>
+                            @*<td>@author.City</td>*@
+                            <td>@author.EmailAddress</td>
+                            <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                                <Authorized>
+                                    <th>
+                                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
+                                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
+                                    </th>
+                                </Authorized>
+                            </AuthorizeView>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
-                </tr>
-                }
-            </tbody>
-        </table>
+        </div>
+
     }
     else
-    { 
+    {
         <NoResultMessage></NoResultMessage>
     }
 
@@ -122,7 +125,7 @@
     protected override void OnInitialized()
     {
         Console.WriteLine("Authors - OnInitialized");
-        base.OnInitialized();        
+        base.OnInitialized();
     }
 
     protected override async Task OnInitializedAsync()

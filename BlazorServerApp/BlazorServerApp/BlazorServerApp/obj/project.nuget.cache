@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QZeh7w4F6jQiQOlJ7s8g0nMs8Cr0f4zrq4YOCaiD4OcghYUySh1N7FkOqKYW8z4LNv3gIpLpV+VrPBwyXNLbAw==",
+  "dgSpecHash": "ryCLczCPWXiHOHmSxkN5c0+JU1ZarY+QkPZcqvUR1srsgiZbM4i8UUsnG4BQymjU8c6xyTR5D17qEJkF4Uv+DA==",
   "success": true,
-  "projectFilePath": "C:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorApp\\BlazorApp\\BlazorServerApp.csproj",
+  "projectFilePath": "C:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fahad.mullaji\\.nuget\\packages\\blazored.localstorage\\2.1.1\\blazored.localstorage.2.1.1.nupkg.sha512",
     "C:\\Users\\fahad.mullaji\\.nuget\\packages\\embeddedblazorcontent\\1.10.0\\embeddedblazorcontent.1.10.0.nupkg.sha512",
