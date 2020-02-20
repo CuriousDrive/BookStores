@@ -41,30 +41,24 @@
     <h3><b>Publishers</b></h3>
     @if (publisherList != null)
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>PublisherId</th>
-                    <th>Publisher Name</th>
-                    <th>City</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var publisher in publisherList)
-                {
-                    <tr>
-                        <td>@publisher.PubId</td>
-                        <td>@publisher.PublisherName</td>
-                        <td>@publisher.City</td>
-                        <th>
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
-                        </th>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <TableTemplate Items="publisherList">
+            <TableHeader>
+                <th>PublisherId</th>
+                <th>Publisher Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </TableHeader>
+            <RowTemplate Context="publisher">
+                <td>@publisher.PubId</td>
+                <td>@publisher.PublisherName</td>
+                <td>@publisher.City</td>
+                <th>
+                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
+                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
+                </th>
+            </RowTemplate>
+
+        </TableTemplate>
     }
     else
     {

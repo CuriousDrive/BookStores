@@ -57,50 +57,41 @@
 
     @if (authorList != null)
     {
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-            <table class="table table-bordered table-striped mb-0">
-                <thead class="bg-light">
-                    <tr>
-                        <th>AuthorId</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        @*<th>City</th>*@
-                        <th>Email Address</th>
-                        <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                            <Authorized>
-                                <th>Actions</th>
-                            </Authorized>
-                        </AuthorizeView>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var author in authorList)
-                    {
-                        <tr>
-                            <td>
-                                <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
-                                    @author.AuthorId
-                                </NavLink>
-                            </td>
-                            <td>@author.FirstName</td>
-                            <td>@author.LastName</td>
-                            @*<td>@author.City</td>*@
-                            <td>@author.EmailAddress</td>
-                            <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                                <Authorized>
-                                    <th>
-                                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
-                                        <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
-                                    </th>
-                                </Authorized>
-                            </AuthorizeView>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <TableTemplate Items="authorList">
+            <TableHeader>
+                <th>AuthorId</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+                <th>Email Address</th>
+                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                    <Authorized>
+                        <th>Actions</th>
+                    </Authorized>
+                </AuthorizeView>
+            </TableHeader>
+            <RowTemplate Context="author">
+                <td>
+                    <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
+                        @author.AuthorId
+                    </NavLink>
+                </td>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+                <td>@author.City</td>
+                <td>@author.EmailAddress</td>
+                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                    <Authorized>
+                        <th>
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
+                        </th>
+                    </Authorized>
+                </AuthorizeView>
+            </RowTemplate>
 
-        </div>
-
+        </TableTemplate>
+        
     }
     else
     {

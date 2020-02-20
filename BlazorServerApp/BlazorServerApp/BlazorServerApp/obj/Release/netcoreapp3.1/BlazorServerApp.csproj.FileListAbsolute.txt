@@ -278,3 +278,5 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\obj\Release\netcoreapp3.1\BlazorServerApp.csproj.CopyComplete
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\obj\Release\netcoreapp3.1\BlazorServerApp.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\obj\Release\netcoreapp3.1\BlazorServerApp.pdb
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\obj\Release\netcoreapp3.1\RazorDeclaration\Shared\TableTemplate.razor.g.cs
+C:\Data\CuriousDrive\BookStores\BlazorServerApp\BlazorServerApp\BlazorServerApp\obj\Release\netcoreapp3.1\Razor\Shared\TableTemplate.razor.g.cs
