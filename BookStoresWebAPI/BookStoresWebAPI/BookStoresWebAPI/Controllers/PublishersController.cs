@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStoresWebAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PublishersController : ControllerBase
@@ -33,19 +33,41 @@ namespace BookStoresWebAPI.Controllers
         [HttpGet("GetPublisherDetails/{id}")]
         public async Task<ActionResult<Publisher>> GetPublisherDetails(int id)
         {
-            var publishers = await _context.Publishers
-                                            .Include(pub => pub.Books)
-                                                .ThenInclude(book => book.Sales)
-                                            .Include(pub => pub.Users)                                                
-                                            .Where(pub => pub.PubId == id)
-                                            .FirstOrDefaultAsync();
+            //Eager Loading
+            //var publisher = await _context.Publishers
+            //                                .Include(pub => pub.Users)
+            //                                .Include(pub => pub.Books)
+            //                                    .ThenInclude(book => book.Sales)
+            //                                .Where(pub => pub.PubId == id)
+            //                                .FirstOrDefaultAsync();
 
-            if (publishers == null)
+            //Explicit Loading
+            var publisher = await _context.Publishers.SingleAsync(pub => pub.PubId == id);
+
+            _context.Entry(publisher)
+                    .Collection(pub => pub.Users)
+                    .Query()
+                    .Where(usr => usr.EmailAddress.Contains("karin"))
+                    .Load();
+
+            _context.Entry(publisher)
+                    .Collection(pub => pub.Books)
+                    .Query()
+                    .Include(book => book.Sales)
+                    .Load();
+
+            var user = await _context.Users.SingleAsync(usr => usr.UserId == 1);
+
+            _context.Entry(user)
+                    .Reference(usr => usr.Role)
+                    .Load();
+
+            if (publisher == null)
             {
                 return NotFound();
             }
 
-            return publishers;
+            return publisher;
         }
 
         // GET: api/Publishers/5
@@ -88,11 +110,11 @@ namespace BookStoresWebAPI.Controllers
 
             _context.Publishers.Add(publisher);
             _context.SaveChanges();
-            
+
             var publishers = await _context.Publishers
                                             .Include(pub => pub.Books)
                                                 .ThenInclude(book => book.Sales)
-                                            .Include(pub => pub.Users)                                                
+                                            .Include(pub => pub.Users)
                                             .Where(pub => pub.PubId == publisher.PubId)
                                             .FirstOrDefaultAsync();
 

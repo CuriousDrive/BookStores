@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerApp", "BlazorSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CuriousDriveRazorLibrary", "CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary.csproj", "{036656B5-759F-4001-9D39-AEF33B329BDE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoresWebAPI", "..\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI.csproj", "{1ACFA0A8-CD07-46ED-9C2F-3B5213DB082A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{036656B5-759F-4001-9D39-AEF33B329BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{036656B5-759F-4001-9D39-AEF33B329BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{036656B5-759F-4001-9D39-AEF33B329BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ACFA0A8-CD07-46ED-9C2F-3B5213DB082A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACFA0A8-CD07-46ED-9C2F-3B5213DB082A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACFA0A8-CD07-46ED-9C2F-3B5213DB082A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACFA0A8-CD07-46ED-9C2F-3B5213DB082A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
