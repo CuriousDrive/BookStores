@@ -2,6 +2,7 @@
 @using BlazorServerApp.Data
 @using Newtonsoft.Json
 @using BlazorServerApp.Services
+@using System.Security.Claims
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService
@@ -41,11 +42,19 @@
 
     private User user;
     public string LoginMesssage { get; set; }
+    ClaimsPrincipal claimsPrincipal;
 
-    protected override Task OnInitializedAsync()
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    protected async override Task OnInitializedAsync()
     {
         user = new User();
-        return base.OnInitializedAsync();
+        
+        claimsPrincipal = (await authenticationStateTask).User;
+
+        if (claimsPrincipal.Identity.IsAuthenticated)
+            NavigationManager.NavigateTo("/index");        
     }
 
     private async Task<bool> ValidateUser()

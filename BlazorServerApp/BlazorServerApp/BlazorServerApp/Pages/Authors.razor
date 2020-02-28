@@ -34,7 +34,7 @@
         <br />
         <div class="col-12 row">
             <label class="col-2 font-weight-bold">city :</label>
-            <SelectCity></SelectCity>
+            <SelectCity OnChangeEvent="OnSelectCityChange"></SelectCity>
         </div>
         <br />
         <div class="col-12 row">
@@ -50,6 +50,9 @@
             <input type="submit" class="form-control col-1 btn btn-primary" value="Clear" />
         </div>
     </EditForm>
+</div>
+<div class="col-12">
+    @SelectedCity
 </div>
 <br />
 <div class="col-8">
@@ -91,7 +94,7 @@
             </RowTemplate>
 
         </TableTemplate>
-        
+
     }
     else
     {
@@ -187,11 +190,16 @@
             authorList = await bookStoresService.GetAllAsync("authors/");
         }
 
+        if (authorList != null)
+            authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
+
         StateHasChanged();
     }
 
     private async Task SaveAuthor()
     {
+        author.City = SelectedCity;
+        
         if (author.AuthorId == 0)
             await bookStoresService.SaveAsync("authors/", author);
         else
@@ -224,5 +232,10 @@
     private void EditAuthor(Author argAuthor)
     {
         author = argAuthor;
+    }
+
+    private void OnSelectCityChange(ChangeEventArgs changeEventArgs)
+    {
+        SelectedCity = (string)changeEventArgs.Value;
     }
 }

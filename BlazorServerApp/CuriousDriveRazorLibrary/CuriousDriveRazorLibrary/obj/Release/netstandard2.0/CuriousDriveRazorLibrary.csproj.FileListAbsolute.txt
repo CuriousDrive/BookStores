@@ -4,7 +4,6 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\Curious
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\staticwebassets\CuriousDriveRazorLibrary.StaticWebAssets.Manifest.cache
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\staticwebassets\CuriousDriveRazorLibrary.StaticWebAssets.xml
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.RazorComponent.input.cache
-C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\RazorDeclaration\Component1.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\RazorDeclaration\NoResultMessage.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\RazorDeclaration\SelectCity.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\RazorDeclaration\ServerValidations.razor.g.cs
@@ -13,7 +12,6 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\Curious
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.TagHelpers.input.cache
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.TagHelpers.output.cache
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.RazorCoreGenerate.cache
-C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\Razor\Component1.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\Razor\NoResultMessage.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\Razor\SelectCity.razor.g.cs
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\Razor\ServerValidations.razor.g.cs
@@ -23,4 +21,3 @@ C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\Curious
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.RazorTargetAssemblyInfo.cache
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.dll
 C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.pdb
-C:\Data\CuriousDrive\BookStores\BlazorServerApp\CuriousDriveRazorLibrary\CuriousDriveRazorLibrary\obj\Release\netstandard2.0\CuriousDriveRazorLibrary.csprojAssemblyReference.cache

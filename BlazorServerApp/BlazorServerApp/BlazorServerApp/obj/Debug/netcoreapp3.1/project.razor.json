@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BookStoresWebAPI\\BookStoresWebAPI\\BookStoresWebAPI\\BookStoresWebAPI.csproj",
+  "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -11,6 +11,1257 @@
   },
   "ProjectWorkspaceState": {
     "TagHelpers": [
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.AuthorDetail",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AuthorDetail",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "AuthorId",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "AuthorId"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.AuthorDetail"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.AuthorDetail",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.AuthorDetail",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "AuthorId",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "AuthorId"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.AuthorDetail",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Authors",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Authors",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Authors"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Authors",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.Authors",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Authors",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Counter",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Counter",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Counter"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Counter",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.Counter",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Counter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Error",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Error",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Error"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Error",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.Error",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Error",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Index",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Index"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Index",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.Index",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.LoginPages.Login",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Login",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.LoginPages.Login"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.LoginPages.Login",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.LoginPages.Login",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.LoginPages.Login",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.LoginPages.SignUp",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SignUp",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.LoginPages.SignUp"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.LoginPages.SignUp",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.LoginPages.SignUp",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.LoginPages.SignUp",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Publishers",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Publishers",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Publishers"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Pages.Publishers",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Pages.Publishers",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Pages.Publishers",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.App",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.App"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.App",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.App",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.CenteredCardLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CenteredCardLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.CenteredCardLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.CenteredCardLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Shared.CenteredCardLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.CenteredCardLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.CenteredCardLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "CenteredCardLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.CenteredCardLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.CenteredCardLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "BlazorServerApp.Shared.CenteredCardLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.CenteredCardLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.LoginLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "LoginLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.LoginLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.LoginLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Shared.LoginLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.LoginLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.LoginLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "LoginLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.LoginLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.LoginLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "BlazorServerApp.Shared.LoginLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.LoginLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.MainLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.MainLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.MainLayout",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Shared.MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.MainLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.MainLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "MainLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.MainLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.MainLayout.Body",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "BlazorServerApp.Shared.MainLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.MainLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.NavMenu",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.NavMenu"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.NavMenu",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Shared.NavMenu",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TableTemplate",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TItem",
+            "TypeName": "System.Type",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the type of the type parameter TItem for the BlazorServerApp.Shared.TableTemplate<TItem> component.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "TItem",
+              "Components.TypeParameter": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TableHeader",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "TableHeader",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "RowTemplate",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment<TItem>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "RowTemplate",
+              "Components.ChildContent": "True",
+              "Components.GenericTyped": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Items",
+            "TypeName": "System.Collections.Generic.IReadOnlyList<TItem>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Items",
+              "Components.GenericTyped": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the parameter name for all child content expressions.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Components.ChildContentParameterName": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorServerApp.Shared.TableTemplate",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TItem",
+            "TypeName": "System.Type",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the type of the type parameter TItem for the BlazorServerApp.Shared.TableTemplate<TItem> component.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "TItem",
+              "Components.TypeParameter": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TableHeader",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "TableHeader",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "RowTemplate",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment<TItem>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "RowTemplate",
+              "Components.ChildContent": "True",
+              "Components.GenericTyped": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Items",
+            "TypeName": "System.Collections.Generic.IReadOnlyList<TItem>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Items",
+              "Components.GenericTyped": "True"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the parameter name for all child content expressions.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Components.ChildContentParameterName": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>",
+          "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>.TableHeader",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TableHeader",
+            "ParentTag": "TableTemplate",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>.TableHeader",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>.TableHeader",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TableHeader",
+            "ParentTag": "BlazorServerApp.Shared.TableTemplate",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>.TableHeader",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>.RowTemplate",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RowTemplate",
+            "ParentTag": "TableTemplate",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.ChildContent",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the parameter name for the 'RowTemplate' child content expression.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Components.ChildContentParameterName": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>.RowTemplate",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "BlazorServerApp.Shared.TableTemplate<TItem>.RowTemplate",
+        "AssemblyName": "BlazorServerApp",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "RowTemplate",
+            "ParentTag": "BlazorServerApp.Shared.TableTemplate",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.ChildContent",
+            "Name": "Context",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "Specifies the parameter name for the 'RowTemplate' child content expression.",
+            "Diagnostics": [],
+            "Metadata": {
+              "Components.ChildContentParameterName": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "BlazorServerApp.Shared.TableTemplate<TItem>.RowTemplate",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
       {
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
@@ -4005,6 +5256,324 @@
         "Metadata": {
           "Runtime.Name": "Components.None",
           "Common.TypeName": "Microsoft.AspNetCore.Components.Routing.NavLink.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.NoResultMessage",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NoResultMessage",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.NoResultMessage"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.NoResultMessage",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CuriousDriveRazorLibrary.NoResultMessage",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.NoResultMessage",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.SelectCity",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "SelectCity",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "OnChangeEvent",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.ChangeEventArgs>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "OnChangeEvent",
+              "Components.EventCallback": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.SelectCity"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.SelectCity",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CuriousDriveRazorLibrary.SelectCity",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "OnChangeEvent",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.ChangeEventArgs>",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "OnChangeEvent",
+              "Components.EventCallback": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.SelectCity",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.ServerValidations",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ServerValidations",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IsVisible",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "IsVisible"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Result",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Result"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.ServerValidations"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "CuriousDriveRazorLibrary.ServerValidations",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CuriousDriveRazorLibrary.ServerValidations",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IsVisible",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "IsVisible"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Result",
+            "TypeName": "System.Boolean",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Result"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ChildContent",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "ChildContent",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "CuriousDriveRazorLibrary.ServerValidations",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "CuriousDriveRazorLibrary.ServerValidations.ChildContent",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "ServerValidations",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "CuriousDriveRazorLibrary.ServerValidations.ChildContent",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "CuriousDriveRazorLibrary.ServerValidations.ChildContent",
+        "AssemblyName": "CuriousDriveRazorLibrary",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ChildContent",
+            "ParentTag": "CuriousDriveRazorLibrary.ServerValidations",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "CuriousDriveRazorLibrary.ServerValidations.ChildContent",
           "Components.IsSpecialKind": "Components.ChildContent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
@@ -20498,7 +22067,93 @@
     ],
     "CSharpLanguageVersion": 800
   },
-  "RootNamespace": "BookStoresWebAPI",
-  "Documents": [],
+  "RootNamespace": "BlazorServerApp",
+  "Documents": [
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\Authors.razor",
+      "TargetPath": "Pages\\Authors.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Shared\\TableTemplate.razor",
+      "TargetPath": "Shared\\TableTemplate.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\LoginPages\\_Imports.razor",
+      "TargetPath": "Pages\\LoginPages\\_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Shared\\LoginLayout.razor",
+      "TargetPath": "Shared\\LoginLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\LoginPages\\SignUp.razor",
+      "TargetPath": "Pages\\LoginPages\\SignUp.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\AuthorDetail.razor",
+      "TargetPath": "Pages\\AuthorDetail.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\Error.razor",
+      "TargetPath": "Pages\\Error.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Shared\\NavMenu.razor",
+      "TargetPath": "Shared\\NavMenu.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\LoginPages\\Login.razor",
+      "TargetPath": "Pages\\LoginPages\\Login.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Shared\\MainLayout.razor",
+      "TargetPath": "Shared\\MainLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\Counter.razor",
+      "TargetPath": "Pages\\Counter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\App.razor",
+      "TargetPath": "App.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\Publishers.razor",
+      "TargetPath": "Pages\\Publishers.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Pages\\_Host.cshtml",
+      "TargetPath": "Pages\\_Host.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Data\\CuriousDrive\\BookStores\\BlazorServerApp\\BlazorServerApp\\BlazorServerApp\\Shared\\CenteredCardLayout.razor",
+      "TargetPath": "Shared\\CenteredCardLayout.razor",
+      "FileKind": "component"
+    }
+  ],
   "SerializationFormat": "0.2"
 }
