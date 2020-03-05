@@ -1,0 +1,178 @@
+﻿@page "/eventhandling"
+@using BlazorServerApp.Data
+@using Blazored.LocalStorage
+@using System.Security.Claims
+@inject NavigationManager navigationManager
+@inject ILocalStorageService localStorageService
+@inject IAuthorizationService authorizationService
+@*these are mouse event args*@
+<div class="col-12">
+    <h2><b>Mouse Event Args</b></h2>
+    <hr />
+
+    <div class="col-12 row bg-info rounded" style="height:200px"
+         @onclick="MouseHandler"
+         @onmouseup="MouseHandler"
+         @ondblclick="MouseHandler"
+         @onmousewheel="MouseHandler"
+         @onmousemove="MouseHandler"
+         @onmouseout="MouseHandler">
+
+        <p style="font-size:large;text-align:center">
+            <br />
+            Perform all the mouse related operation
+        </p>
+    </div>
+    <br />
+
+    <div class="col-12" style="font-size:large">
+        <p><b>Mouse Location :</b> @MouseLocation</p>
+        <p><b>Action Performed :</b> @ActionPerformed</p>
+    </div>
+    <br />
+
+</div>
+
+@*these are keyboard event args*@
+<div class="col-12">
+    <h2><b>Keyboard Event Args</b></h2>
+    <hr />
+
+    <div class="col-12">
+        <input @bind-value="Value" class="form-control" placeholder="binding way" />
+    </div>
+    <br />
+
+    <div class="col-12" style="font-size:large">
+        <p><b>Bound Value :</b> @Value</p>
+    </div>
+    <br />
+
+    <div class="col-6 row">
+        <div class="col-3">
+            <b>Prevent Default :</b>
+        </div>
+        <div class="col-1">
+            <input type="checkbox" class="form-check-input"
+                   @onchange="CheckChanged" />
+        </div>
+    </div>
+    <br />
+
+    <div class="col-12">
+        <input class="form-control" placeholder="keyboard handler way"
+               @onkeydown="KeyboardHandler" @onkeydown:preventDefault="KeyDownPreventDefault" />
+    </div>
+    <br />
+
+    <div class="col-12" style="font-size:large">
+        <p><b>Keys Pressed :</b> @KeysPressed</p>
+    </div>
+    <br />
+
+</div>
+
+@*these are lambda expressions*@
+<div class="col-12">
+    <h2><b>Lambda expressions</b></h2>
+    <hr />
+
+    <div class="col-12" style="font-size:large">
+        <p><b>Controls in for loop</b></p>
+    </div>
+    <br />
+
+    <div class="col-12">
+        @for (var i = 1; i < 6; i++)
+        {
+            var buttonNumber = i;
+
+            <div class="col-12">
+                <button class="btn btn-primary"
+                        @onclick="@(e => UpdateText(e, buttonNumber))">
+                    Button #@i
+                </button>
+            </div>
+            <br />
+        }
+
+    </div>
+
+    <div class="col-12" style="font-size:large">
+        <p><b>Button Pressed :</b> @ButtonNumber</p>
+    </div>
+    <br />
+</div>
+
+@code {
+
+    string ActionPerformed;
+    string MouseLocation;
+    string Value;
+    string KeysPressed;
+    string ButtonNumber;
+    bool KeyDownPreventDefault;
+
+    #region MouseEventArgs
+
+    void MouseHandler(MouseEventArgs mouseEventArgs)
+    {
+        switch (mouseEventArgs.Type)
+        {
+            case "mousemove":
+                MouseLocation = $"{mouseEventArgs.ClientX} X {mouseEventArgs.ClientY}";
+                break;
+
+            case "click":
+                ActionPerformed = "This is a left click event";
+                break;
+
+            case "mouseup":
+                if (mouseEventArgs.Button == 2)
+                    ActionPerformed = "This is a right click event";
+                break;
+
+            case "dblclick":
+                ActionPerformed = "This is a double click event";
+                break;
+
+            case "mousewheel":
+                ActionPerformed = "This is a mouse wheel event";
+                break;
+
+            case "mouseout":
+                ActionPerformed = "This is a mouse out event";
+                break;
+
+            default:
+                ActionPerformed = mouseEventArgs.Type;
+                break;
+        }
+    }
+
+    #endregion
+
+    #region KeyboardEventArgs
+
+    private void KeyboardHandler(KeyboardEventArgs e)
+    {
+        KeysPressed += e.Key;
+    }
+
+    private void CheckChanged(ChangeEventArgs changeEventArgs)
+    {
+        KeyDownPreventDefault = (bool)changeEventArgs.Value;
+    }
+
+    #endregion
+
+    #region LambdaExpression
+
+    private void UpdateText(MouseEventArgs e, int buttonNumber)
+    {
+        ButtonNumber = $"You selected Button #{buttonNumber} at " +
+            $"mouse position: {e.ClientX} X {e.ClientY}.";
+    }
+
+    #endregion
+}

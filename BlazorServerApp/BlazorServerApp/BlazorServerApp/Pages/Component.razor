@@ -1,0 +1,17 @@
+﻿
+<button @onclick="DisplayDate">The time is?</button>
+<p>@CurrentDateTime</p>
+
+@code {
+
+    string CurrentDateTime;
+
+    private void DisplayDate()
+    {
+        CurrentDateTime = DateTime.UtcNow.ToString();
+    }
+}
+
+
+
+
