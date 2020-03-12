@@ -2,6 +2,19 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/BookStores/v16
-/BlazorServerApp/.vs/BlazorApp/v16
-/BlazorServerApp/.vs/BlazorServerApp
+**/.vs/
+**/BlazorServerApp/.vs/
+**/BlazorServerApp/BlazorServerApp/bin
+**/BlazorServerApp/BlazorServerApp/obj
+
+
+**/BlazorServerApp/CuriousDriveRazorLibrary/.vs/
+**/BlazorServerApp/CuriousDriveRazorLibrary/CuriousDriveRazorLibrary/bin
+**/BlazorServerApp/CuriousDriveRazorLibrary/CuriousDriveRazorLibrary/obj
+
+**/BookStoresWebAPI/.vs/
+**/BookStoresWebAPI/.vscode/
+**/BookStoresWebAPI/.vs/
+**/BookStoresWebAPI/BookStoresWebAPI/.vs
+**/BookStoresWebAPI/BookStoresWebAPI/BookStoresWebAPI/bin
+**/BookStoresWebAPI/BookStoresWebAPI/BookStoresWebAPI/obj
