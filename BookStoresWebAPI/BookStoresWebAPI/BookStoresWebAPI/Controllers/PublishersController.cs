@@ -56,12 +56,6 @@ namespace BookStoresWebAPI.Controllers
                     .Include(book => book.Sales)
                     .Load();
 
-            var user = await _context.Users.SingleAsync(usr => usr.UserId == 1);
-
-            _context.Entry(user)
-                    .Reference(usr => usr.Role)
-                    .Load();
-
             if (publisher == null)
             {
                 return NotFound();

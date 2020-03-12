@@ -133,7 +133,7 @@ namespace BookStoresWebAPI.Controllers
         [HttpPost("RefreshToken")]
         public async Task<ActionResult<UserWithToken>> RefreshToken([FromBody] RefreshRequest refreshRequest)
         {
-            User user = GetUserFromAccessToken(refreshRequest.AccessToken);
+            User user = await GetUserFromAccessToken(refreshRequest.AccessToken);
 
             if (user != null && ValidateRefreshToken(user, refreshRequest.RefreshToken))
             {
@@ -150,7 +150,7 @@ namespace BookStoresWebAPI.Controllers
         [HttpPost("GetUserByAccessToken")]
         public async Task<ActionResult<User>> GetUserByAccessToken([FromBody] string accessToken)
         {
-            User user = GetUserFromAccessToken(accessToken);
+            User user = await GetUserFromAccessToken(accessToken);
 
             if (user != null)
             {
@@ -176,7 +176,7 @@ namespace BookStoresWebAPI.Controllers
             return false;
         }
 
-        private User GetUserFromAccessToken(string accessToken)
+        private async Task<User> GetUserFromAccessToken(string accessToken)
         {
             try
             {
@@ -200,8 +200,8 @@ namespace BookStoresWebAPI.Controllers
                 {
                     var userId = principle.FindFirst(ClaimTypes.Name)?.Value;
 
-                    return _context.Users.Include(u => u.Role)
-                                        .Where(u => u.UserId == Convert.ToInt32(userId)).FirstOrDefault();
+                    return await _context.Users.Include(u => u.Role)
+                                        .Where(u => u.UserId == Convert.ToInt32(userId)).FirstOrDefaultAsync();
                 }
             }
             catch (Exception)

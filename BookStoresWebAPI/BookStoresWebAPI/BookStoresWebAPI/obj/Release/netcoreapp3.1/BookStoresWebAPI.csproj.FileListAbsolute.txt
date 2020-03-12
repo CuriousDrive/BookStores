@@ -28,7 +28,19 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Debug.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.Identity.Client.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
@@ -59,6 +71,7 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\System.Text.Json.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -131,7 +144,6 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.csprojAssemblyReference.cache
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\staticwebassets\BookStoresWebAPI.StaticWebAssets.Manifest.cache
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\staticwebassets\BookStoresWebAPI.StaticWebAssets.xml
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.MvcApplicationPartsAssemblyInfo.cache
@@ -142,3 +154,4 @@ C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebA
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.csproj.CopyComplete
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.dll
 C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.pdb
+C:\Data\CuriousDrive\BookStores\BookStoresWebAPI\BookStoresWebAPI\BookStoresWebAPI\obj\Release\netcoreapp3.1\BookStoresWebAPI.csprojAssemblyReference.cache
