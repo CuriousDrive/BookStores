@@ -28,10 +28,10 @@ namespace BookStoresWebAPI.Controllers
         {
             return await _context.Publishers.ToListAsync();
         }
-
+        
         // GET: api/Publishers/5
-        [HttpGet("GetPublisherDetails/{id}")]
-        public async Task<ActionResult<Publisher>> GetPublisherDetails(int id)
+        [HttpGet("GetPublisherDetails/{PublisherId}")]
+        public async Task<ActionResult<Publisher>> GetPublisherDetails(string PublisherId)
         {
             //Eager Loading
             //var publisher = await _context.Publishers
@@ -42,7 +42,7 @@ namespace BookStoresWebAPI.Controllers
             //                                .FirstOrDefaultAsync();
 
             //Explicit Loading
-            var publisher = await _context.Publishers.SingleAsync(pub => pub.PubId == id);
+            var publisher = await _context.Publishers.SingleAsync(pub => pub.PubId == Convert.ToInt32(PublisherId));
 
             _context.Entry(publisher)
                     .Collection(pub => pub.Users)
@@ -65,7 +65,7 @@ namespace BookStoresWebAPI.Controllers
         }
 
         // GET: api/Publishers/5
-        [HttpGet("PostPublisherDetails/")]
+        [HttpPost("PostPublisherDetails/")]
         public async Task<ActionResult<Publisher>> PostPublisherDetails()
         {
             var publisher = new Publisher();

@@ -66,6 +66,14 @@ namespace BookStoresWebAPI
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
+            services.AddSwaggerGen(gen =>
+            {
+                gen.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Book Stores API", Version = "v1.0" });
+            });
+
+            // /swagger/v1.0/swagger.json
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,10 +91,17 @@ namespace BookStoresWebAPI
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(ui =>
+            {
+                ui.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Book Stores API Endpoint");
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
-    }
+    }   
 }
