@@ -51,56 +51,73 @@
         </div>
     </EditForm>
 </div>
-<div class="col-12">
-    @SelectedCity
-</div>
 <br />
+
 <div class="col-8">
-    <h3><b>Authors</b></h3>
-
+    
+    <div class="col-12">
+        <h3><b>Authors</b></h3>
+    </div>
+    
     @if (authorList != null)
-    {
-        <TableTemplate Items="authorList">
-            <TableHeader>
-                <th>AuthorId</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>City</th>
-                <th>Email Address</th>
-                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                    <Authorized>
-                        <th>Actions</th>
-                    </Authorized>
-                </AuthorizeView>
-            </TableHeader>
-            <RowTemplate Context="author">
-                <td>
-                    <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
-                        @author.AuthorId
-                    </NavLink>
-                </td>
-                <td>@author.FirstName</td>
-                <td>@author.LastName</td>
-                <td>@author.City</td>
-                <td>@author.EmailAddress</td>
-                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                    <Authorized>
-                        <th>
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
-                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
-                        </th>
-                    </Authorized>
-                </AuthorizeView>
-            </RowTemplate>
+    {        
+        <div class="col-6 row">
+            <div class="col-11">
+                <input class="form-control" placeholder="search" />
+            </div>
+            <div class="col-1">
+                <button class="btn btn-primary">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+        </div>        
+        <br />
+        
+        <div class="col-12">
+            
+            <TableTemplate Items="authorList">
 
-        </TableTemplate>
+                <TableHeader>
+                    <th>AuthorId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
+                    <th>Email Address</th>
+                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                        <Authorized>
+                            <th>Actions</th>
+                        </Authorized>
+                    </AuthorizeView>
+                </TableHeader>
+                <RowTemplate Context="author">
+                    <td>
+                        <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
+                            @author.AuthorId
+                        </NavLink>
+                    </td>
+                    <td>@author.FirstName</td>
+                    <td>@author.LastName</td>
+                    <td>@author.City</td>
+                    <td>@author.EmailAddress</td>
+                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                        <Authorized>
+                            <th>
+                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
+                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
+                            </th>
+                        </Authorized>
+                    </AuthorizeView>
+                </RowTemplate>
 
+            </TableTemplate>
+        
+        </div>
+        
     }
     else
     {
         <NoResultMessage></NoResultMessage>
     }
-
 </div>
 
 @code {
@@ -190,8 +207,8 @@
             authorList = await bookStoresService.GetAllAsync("authors/");
         }
 
-        if (authorList != null)
-            authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
+        //if (authorList != null)
+        //    authorList = authorList.OrderByDescending(auth => auth.AuthorId).ToList();
 
         StateHasChanged();
     }
@@ -199,7 +216,7 @@
     private async Task SaveAuthor()
     {
         author.City = SelectedCity;
-        
+
         if (author.AuthorId == 0)
             await bookStoresService.SaveAsync("authors/", author);
         else
