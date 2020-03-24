@@ -3,6 +3,7 @@
 @using BlazorServerApp.Services
 @using CuriousDriveRazorLibrary
 @using Blazored.LocalStorage
+@using BlazorServerApp.Shared
 @inject IBookStoresService<Author> bookStoresService
 @inject IUserService userService
 @inject ILocalStorageService localStorageService
@@ -53,66 +54,50 @@
 </div>
 <br />
 
-<div class="col-8">
-    
-    <div class="col-12">
-        <h3><b>Authors</b></h3>
-    </div>
-    
-    @if (authorList != null)
-    {        
-        <div class="col-6 row">
-            <div class="col-11">
-                <input class="form-control" placeholder="search" />
-            </div>
-            <div class="col-1">
-                <button class="btn btn-primary">
-                    <span class="fa fa-search"></span>
-                </button>
-            </div>
-        </div>        
-        <br />
-        
-        <div class="col-12">
-            
-            <TableTemplate Items="authorList">
+<div class="col-12">
 
-                <TableHeader>
-                    <th>AuthorId</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>City</th>
-                    <th>Email Address</th>
-                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                        <Authorized>
-                            <th>Actions</th>
-                        </Authorized>
-                    </AuthorizeView>
-                </TableHeader>
-                <RowTemplate Context="author">
-                    <td>
-                        <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
-                            @author.AuthorId
-                        </NavLink>
-                    </td>
-                    <td>@author.FirstName</td>
-                    <td>@author.LastName</td>
-                    <td>@author.City</td>
-                    <td>@author.EmailAddress</td>
-                    <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
-                        <Authorized>
-                            <th>
-                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
-                                <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
-                            </th>
-                        </Authorized>
-                    </AuthorizeView>
-                </RowTemplate>
+    <h3><b>Authors</b></h3>
 
-            </TableTemplate>
-        
-        </div>
-        
+    @if (filteredAuthorList != null)
+    {
+        <GridView Items="filteredAuthorList" ReloadList="IsGridViewFiltered">
+            <GridColumns>
+                <GridColumn ColumnTitle="AuthorId"
+                            OnSearchTextChanged="@(e => OnAuthorSearchTextChanged(e, "AuthorId"))"></GridColumn>
+                <GridColumn ColumnTitle="FirstName"
+                            OnSearchTextChanged="@(e => OnAuthorSearchTextChanged(e, "FirstName"))"></GridColumn>
+                <GridColumn ColumnTitle="LastName"
+                            OnSearchTextChanged="@(e => OnAuthorSearchTextChanged(e, "LastName"))"></GridColumn>
+                <GridColumn ColumnTitle="City"
+                            OnSearchTextChanged="@(e => OnAuthorSearchTextChanged(e, "City"))"></GridColumn>
+                @*<GridColumn ColumnTitle="EmailAddress"
+                            OnSearchTextChanged="@(e => OnAuthorSearchTextChanged(e, "EmailAddress"))"></GridColumn>*@
+                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                    <Authorized>
+                        <GridColumn ColumnTitle="Actions"></GridColumn>
+                    </Authorized>
+                </AuthorizeView>
+            </GridColumns>
+            <GridRow Context="author">
+                <td>
+                    <NavLink href=@string.Format("/authors/authordetail/{0}", @author.AuthorId)>
+                        @author.AuthorId
+                    </NavLink>
+                </td>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+                <td>@author.City</td>
+                @*<td>@author.EmailAddress</td>*@
+                <AuthorizeView Roles="Publisher" Policy="SeniorEmployee">
+                    <Authorized>
+                        <th>
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditAuthor(author))">Edit</a> |
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeleteAuthor(author.AuthorId))">Delete</a>
+                        </th>
+                    </Authorized>
+                </AuthorizeView>
+            </GridRow>
+        </GridView>
     }
     else
     {
@@ -124,12 +109,14 @@
 
     public Author author { get; set; }
     public List<Author> authorList { get; set; }
+    public List<Author> filteredAuthorList { get; set; }
     public string SelectedCity { get; set; }
 
     public bool IsVisible { get; set; }
     public bool Result { get; set; }
     public string RecordName { get; set; }
     public string[] Cities { get; set; }
+    public bool IsGridViewFiltered { get; set; }
 
     ElementReference firstNameTextBox;
 
@@ -193,7 +180,7 @@
 
     private async Task LoadAuthors()
     {
-        authorList = await bookStoresService.GetAllAsync("authors/");
+        authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/");
 
         if (authorList == null)
         {
@@ -204,7 +191,7 @@
             var user1 = await userService.RefreshTokenAsync(refreshRequest);
             await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
 
-            authorList = await bookStoresService.GetAllAsync("authors/");
+            authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/");
         }
 
         //if (authorList != null)
@@ -254,5 +241,33 @@
     private void OnSelectCityChange(ChangeEventArgs changeEventArgs)
     {
         SelectedCity = (string)changeEventArgs.Value;
+    }
+
+    private void OnAuthorSearchTextChanged(ChangeEventArgs changeEventArgs, string columnTitle)
+    {
+        string searchText = changeEventArgs.Value.ToString();
+        IsGridViewFiltered = true;
+
+        switch (columnTitle)
+        {
+            case "AuthorId":
+                filteredAuthorList = authorList.Where(auth => auth.AuthorId.ToString().Contains(searchText)).ToList();
+                break;
+            case "FirstName":
+                filteredAuthorList = authorList.Where(auth => auth.FirstName.ToLower().Contains(searchText)).ToList();
+                break;
+            case "LastName":
+                filteredAuthorList = authorList.Where(auth => auth.LastName.ToLower().Contains(searchText)).ToList();
+                break;
+            case "City":
+                filteredAuthorList = authorList.Where(auth => auth.City.ToLower().Contains(searchText)).ToList();
+                break;
+            case "EmailAddress":
+                filteredAuthorList = authorList.Where(auth => auth.EmailAddress.ToLower().Contains(searchText)).ToList();
+                break;
+            default:
+                Console.WriteLine("Default case");
+                break;
+        }
     }
 }

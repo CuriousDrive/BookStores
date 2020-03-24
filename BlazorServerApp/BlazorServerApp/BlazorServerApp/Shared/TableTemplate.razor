@@ -1,22 +1,25 @@
 ﻿@typeparam TItem
 
-<div class="table-wrapper-scroll-y my-custom-scrollbar">
-    <table class="table table-bordered table-striped mb-0">
-        <thead class="bg-info">
-            <tr>
-                @TableHeader
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Items)
-            {
+<div class="col-12 row">
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-bordered table-striped mb-0">
+            <thead class="bg-info">
                 <tr>
-                    @RowTemplate(item)
+                    @TableHeader
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Items)
+                {
+                    <tr>
+                        @RowTemplate(item)
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
 
 @code {
 
@@ -28,4 +31,5 @@
 
     [Parameter]
     public List<TItem> Items { get; set; }
+
 }

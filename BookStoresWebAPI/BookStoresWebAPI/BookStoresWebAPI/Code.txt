@@ -9,3 +9,9 @@
 );
 
 Scaffold-DbContext -Connection Name=BookStoresDB Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+
+class="table-wrapper-scroll-y my-custom-scrollbar"
+
+Building Chat App using Blazor WebAssembly with SignalR - Day #18
+
+Building Book Stores using Blazor Server for YouTube Channel

@@ -1,0 +1,103 @@
+﻿@typeparam TItem
+
+<div class="col-12 row">
+    <div>
+        <table class="table table-bordered table-striped mb-0">
+            <thead class="bg-info">
+                <tr>
+                    @GridColumns
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ItemList)
+                {
+                    <tr>
+                        @GridRow(item)
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div>
+    <button class="btn btn-info" @onclick="@(e => NavigateTo("first"))">@("<<")</button>
+    <button class="btn btn-secondary" @onclick="@(e => NavigateTo("prev"))">Prev</button>
+
+    @for (int i = 0; i < TotalPages; i++)
+    {
+        var currentPage = i;
+        <button class="btn @(currentPage == CurrPage? "btn-dark" : "btn-info" ) btn-info"
+                @onclick="@(e => UpdateList(currentPage))">
+            @(i + 1)
+        </button>
+    }
+
+    <button class="btn btn-secondary" @onclick="@(e => NavigateTo("next"))">Next</button>
+    <button class="btn btn-info" @onclick="@(e => NavigateTo("last"))">@(">>")</button>
+</div>
+
+@code {
+
+    [Parameter]
+    public RenderFragment GridColumns { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> GridRow { get; set; }
+
+    [Parameter]
+    public List<TItem> Items { get; set; }
+
+    public List<TItem> ItemList { get; set; }
+
+    [Parameter]
+    public bool ForceReloadList { get; set; }
+
+    public int PageSize { get; set; }
+    public int TotalPages { get; set; }
+    public int CurrPage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        PageSize = 5;
+        ItemList = Items.Take(PageSize).ToList();
+        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+
+        base.OnInitialized();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender && ForceReloadList)
+        {
+            UpdateList();
+            ForceReloadList = false;
+
+            StateHasChanged();
+        }
+
+        base.OnAfterRender(firstRender);
+    }
+
+    private void UpdateList(int currentPage = 0)
+    {
+        //currentPage * pageSize
+        ItemList = Items.Skip(currentPage * PageSize).Take(PageSize).ToList();
+        TotalPages = (int)Math.Ceiling(Items.Count() / (decimal)PageSize);
+        CurrPage = currentPage;
+    }
+
+    private void NavigateTo(string direction)
+    {
+        if (direction == "prev" && CurrPage != 0)
+            CurrPage -= 1;
+        else if (direction == "next" && CurrPage != TotalPages - 1)
+            CurrPage += 1;
+        else if (direction == "first")
+            CurrPage = 0;
+        else if (direction == "last")
+            CurrPage = TotalPages - 1;
+
+        UpdateList(CurrPage);
+    }
+}
