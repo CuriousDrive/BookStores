@@ -23,12 +23,26 @@ namespace BookStoresWebAPI.Controllers
         }
 
         // GET: api/Publishers
-        [HttpGet]
+        [HttpGet("GetPublishers")]
         public async Task<ActionResult<IEnumerable<Publisher>>> GetPublishers()
         {
             return await _context.Publishers.ToListAsync();
         }
-        
+
+        // GET: api/Publishers/5
+        [HttpGet("GetPublisher/{id}")]
+        public async Task<ActionResult<Publisher>> GetPublisher(int id)
+        {
+            var publisher = await _context.Publishers.FindAsync(id);
+
+            if (publisher == null)
+            {
+                return NotFound();
+            }
+
+            return publisher;
+        }
+
         // GET: api/Publishers/5
         [HttpGet("GetPublisherDetails/{PublisherId}")]
         public async Task<ActionResult<Publisher>> GetPublisherDetails(string PublisherId)
@@ -119,25 +133,12 @@ namespace BookStoresWebAPI.Controllers
 
             return publishers;
         }
-
-        // GET: api/Publishers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Publisher>> GetPublisher(int id)
-        {
-            var publisher = await _context.Publishers.FindAsync(id);
-
-            if (publisher == null)
-            {
-                return NotFound();
-            }
-
-            return publisher;
-        }
+                
 
         // PUT: api/Publishers/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+        [HttpPut("UpdatePublisher/{id}")]
         public async Task<IActionResult> PutPublisher(int id, Publisher publisher)
         {
             if (id != publisher.PubId)
@@ -169,17 +170,17 @@ namespace BookStoresWebAPI.Controllers
         // POST: api/Publishers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
+        [HttpPost("CreatePublisher")]
         public async Task<ActionResult<Publisher>> PostPublisher(Publisher publisher)
         {
             _context.Publishers.Add(publisher);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPublisher", new { id = publisher.PubId }, publisher);
+            return await Task.FromResult(publisher); //CreatedAtAction("GetPublisher", new { id = publisher.PubId }, publisher);
         }
 
         // DELETE: api/Publishers/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeletePublisher/{id}")]
         public async Task<ActionResult<Publisher>> DeletePublisher(int id)
         {
             var publisher = await _context.Publishers.FindAsync(id);

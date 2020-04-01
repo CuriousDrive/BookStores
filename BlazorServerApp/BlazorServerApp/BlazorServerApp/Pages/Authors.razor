@@ -180,7 +180,7 @@
 
     private async Task LoadAuthors()
     {
-        authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/");
+        authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/GetAuthors");
 
         if (authorList == null)
         {
@@ -191,7 +191,7 @@
             var user1 = await userService.RefreshTokenAsync(refreshRequest);
             await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
 
-            authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/");
+            authorList = filteredAuthorList = await bookStoresService.GetAllAsync("authors/GetAuthors");
         }
 
         //if (authorList != null)
@@ -205,9 +205,9 @@
         author.City = SelectedCity;
 
         if (author.AuthorId == 0)
-            await bookStoresService.SaveAsync("authors/", author);
+            await bookStoresService.SaveAsync("authors/CreateAuthor", author);
         else
-            await bookStoresService.UpdateAsync("authors/", author.AuthorId, author);
+            await bookStoresService.UpdateAsync("authors/UpdateAuthor", author.AuthorId, author);
 
         await LoadAuthors();
 
@@ -227,7 +227,7 @@
 
     private async Task DeleteAuthor(int authorId)
     {
-        await bookStoresService.DeleteAsync("authors/", authorId);
+        await bookStoresService.DeleteAsync("authors/DeleteAuthor", authorId);
         await LoadAuthors();
 
         //throw new Exception("DeleteAuthor");

@@ -103,7 +103,7 @@
 
     private async Task LoadPublishers()
     {
-        publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("publishers/");
+        publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("publishers/GetPublishers");
 
         if (publisherList == null)
         {
@@ -114,7 +114,7 @@
             var user1 = await userService.RefreshTokenAsync(refreshRequest);
             await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
 
-            publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("authors/");
+            publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("authors/GetPublishers");
         }
 
         StateHasChanged();
@@ -123,9 +123,9 @@
     private async Task SavePublisher()
     {
         if (publisher.PubId == 0)
-            await bookStoresService.SaveAsync("publishers/", publisher);
+            await bookStoresService.SaveAsync("publishers/CreatePublisher", publisher);
         else
-            await bookStoresService.UpdateAsync("publishers/", publisher.PubId, publisher);
+            await bookStoresService.UpdateAsync("publishers/UpdatePublisher", publisher.PubId, publisher);
 
         await LoadPublishers();
 
@@ -144,7 +144,7 @@
 
     private async Task DeletePublisher(int pubId)
     {
-        await bookStoresService.DeleteAsync("publishers/", pubId);
+        await bookStoresService.DeleteAsync("publishers/DeletePublisher", pubId);
 
         await LoadPublishers();
 

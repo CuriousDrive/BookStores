@@ -23,14 +23,14 @@ namespace BookStoresWebAPI.Controllers
         }
 
         // GET: api/Authors
-        [HttpGet]
+        [HttpGet("GetAuthors")]
         public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         {
             return await _context.Authors.ToListAsync();
         }
 
         // GET: api/Authors/5
-        [HttpGet("{id}")]
+        [HttpGet("GetAuthor/{id}")]
         public async Task<ActionResult<Author>> GetAuthor(int id)
         {
             var author = await _context.Authors.FindAsync(id);
@@ -46,7 +46,7 @@ namespace BookStoresWebAPI.Controllers
         // PUT: api/Authors/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+        [HttpPut("UpdateAuthor/{id}")]
         public async Task<IActionResult> PutAuthor(int id, Author author)
         {
             if (id != author.AuthorId)
@@ -78,7 +78,7 @@ namespace BookStoresWebAPI.Controllers
         // POST: api/Authors
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
+        [HttpPost("CreateAuthor")]
         public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
             _context.Authors.Add(author);
@@ -88,7 +88,7 @@ namespace BookStoresWebAPI.Controllers
         }
 
         // DELETE: api/Authors/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteAuthor/{id}")]
         public async Task<ActionResult<Author>> DeleteAuthor(int id)
         {
             var author = await _context.Authors.FindAsync(id);
