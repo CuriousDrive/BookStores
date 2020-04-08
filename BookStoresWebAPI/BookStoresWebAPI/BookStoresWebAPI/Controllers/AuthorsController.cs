@@ -26,7 +26,30 @@ namespace BookStoresWebAPI.Controllers
         [HttpGet("GetAuthors")]
         public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         {
+            //await Task.Delay(3000);
             return await _context.Authors.ToListAsync();
+        }
+
+        [HttpGet("GetAuthorsCount")]
+        public async Task<ActionResult<ItemCount>> GetAuthorsCount()
+        {
+            ItemCount itemCount = new ItemCount();
+
+            itemCount.Count = _context.Authors.Count();
+            return await Task.FromResult(itemCount);
+        }
+        
+        // GET: api/Authors
+        [HttpGet("GetAuthorsByPage")]
+        public async Task<ActionResult<IEnumerable<Author>>> GetAuthorsByPage(int pageSize, int pageNumber)
+        {
+            //pageNumber * pageSize -> take 5
+            //ItemList = Items.Skip(pageNumber * PageSize).Take(PageSize).ToList();
+            
+            List<Author> AuthorList = await _context.Authors.ToListAsync();
+            AuthorList = AuthorList.Skip(pageNumber * pageSize).Take(pageSize).ToList();
+
+            return await Task.FromResult(AuthorList);
         }
 
         // GET: api/Authors/5

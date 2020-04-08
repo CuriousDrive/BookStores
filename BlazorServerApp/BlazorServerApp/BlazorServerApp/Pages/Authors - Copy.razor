@@ -56,12 +56,13 @@
 
 <div class="col-12">
 
-    <h3><b>Authors</b></h3>    
+    <h3><b>Authors</b></h3>
+
     <SpinLoader IsLoading="isLoading">
         <LoadingTemplate>
-            <div class="col-12" style="background-color: lightgray; height:400px; vertical-align:middle">
-                <br /><br />
-                <Chase Center="true" Color="#c21f13" Size="70px"></Chase>
+            <div class="col-12">
+                <br /> <br />
+                <Chase Center="true" Size="60px"></Chase>
             </div>
         </LoadingTemplate>
         <ContentTemplate>
@@ -105,6 +106,7 @@
             }
         </ContentTemplate>
     </SpinLoader>
+
 </div>
 
 @code {
@@ -119,6 +121,7 @@
     public string RecordName { get; set; }
     public string[] Cities { get; set; }
     public bool IsGridViewFiltered { get; set; }
+
     bool isLoading = true;
 
     ElementReference firstNameTextBox;
@@ -175,6 +178,7 @@
             await LoadAuthors();
 
             isLoading = false;
+
             StateHasChanged();
         }
 
