@@ -1,0 +1,44 @@
+﻿@page "/index"
+@using BlazorServerApp.Data
+@using Blazored.LocalStorage
+@using System.Security.Claims
+@inject NavigationManager navigationManager
+@inject ILocalStorageService localStorageService
+@inject IAuthorizationService authorizationService
+
+@if (IsUserAuthenticated)
+{
+    <h3><b>@user.Identity.Name</b> is logged in!!!</h3>
+    <br />
+    <p>Is Publisher : @IsPublisher</p>
+    <p>Is Senior Employee : @IsSeniorEmployee</p>
+}
+else
+{
+    <h3><b>User is logged out</b></h3>
+}
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    ClaimsPrincipal user;
+
+    bool IsUserAuthenticated;
+    bool IsPublisher;
+    bool IsSeniorEmployee;
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = (await authenticationStateTask).User;
+
+        if (user.Identity.IsAuthenticated)
+            IsUserAuthenticated = true;
+
+        if (user.IsInRole("Publisher"))
+            IsPublisher = true;
+
+        if ((await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
+            IsSeniorEmployee = true;
+    }
+}

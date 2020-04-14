@@ -13,6 +13,8 @@ namespace BookStoresWebAPI.Controllers
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     public class PublishersController : ControllerBase
     {
         private readonly BookStoresDBContext _context;
@@ -31,9 +33,12 @@ namespace BookStoresWebAPI.Controllers
 
         // GET: api/Publishers/5
         [HttpGet("GetPublisher/{id}")]
+        [MapToApiVersion("1.0")]        
         public async Task<ActionResult<Publisher>> GetPublisher(int id)
         {
-            var publisher = await _context.Publishers.FindAsync(id);
+            var publisher = await _context.Publishers
+                                            .Where(pub => pub.PubId == id)
+                                            .FirstOrDefaultAsync();
 
             if (publisher == null)
             {

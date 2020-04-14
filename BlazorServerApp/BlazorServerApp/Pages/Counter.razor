@@ -1,0 +1,33 @@
+﻿@page "/counter"
+@inject IAuthorizationService authorizationService
+
+<h1>Counter</h1>
+
+<button class="btn btn-primary" @onclick="FindOutAboutUser">Find Out About User</button>
+<br />
+<label>Is User a Publisher : <b>@IsUserPublisher</b></label>
+<label>Is a Senior : <b>@IsSeniorEmployee</b></label>
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    bool IsUserPublisher;
+    bool IsSeniorEmployee;
+
+    private async Task FindOutAboutUser()
+    {
+        
+        
+        var user = (await authenticationStateTask).User;
+
+        if (user.IsInRole("Publisher"))
+            IsUserPublisher = true;
+
+        if ((await authorizationService.AuthorizeAsync(user, "SeniorEmployee")).Succeeded)
+            IsSeniorEmployee = true;
+        
+
+    }
+}

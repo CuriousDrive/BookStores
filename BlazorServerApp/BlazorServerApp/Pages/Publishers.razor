@@ -1,0 +1,183 @@
+﻿@page "/publishers"
+@using BlazorServerApp.Data;
+@using CuriousDriveRazorLibrary
+@using BlazorServerApp.Services
+@using BlazorServerApp.Shared
+@using Blazored.LocalStorage
+@inject IBookStoresService<Publisher> bookStoresService
+@inject IUserService userService
+@inject ILocalStorageService localStorageService
+@inject IJSRuntime JSRuntime
+@attribute [Authorize(Roles = "Publisher", Policy = "SeniorEmployee")]
+
+<div class="col-12">
+    <h3><b>Enter Publisher Information</b></h3>
+    <hr />
+    <ServerValidations IsVisible="IsVisible" Result="Result">
+        @RecordName
+    </ServerValidations>
+
+    <EditForm Model="@publisher" OnValidSubmit="@SavePublisher">
+        @*<DataAnnotationsValidator />*@
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">first name :</label>
+            <input @ref="publisherNameTextBox" class="form-control col-3" @bind="publisher.PublisherName" placeholder="publisher's name" />
+            &nbsp;<ValidationMessage For="@(() => publisher.PublisherName)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">city :</label>
+            <SelectCity></SelectCity>
+        </div>
+        <br />
+        <div class="col-12 row">
+            <span class="col-2"></span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
+            <span>&nbsp;</span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Clear" />
+        </div>
+
+    </EditForm>
+
+</div>
+<br />
+<div class="col-12">
+    <h3><b>Publishers</b></h3>
+    @if (filteredPublisherList != null)
+    {
+        <GridView Items="filteredPublisherList">
+            <GridColumns>
+                <GridColumn ColumnTitle="PublisherId"
+                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherId"))"></GridColumn>
+                <GridColumn ColumnTitle="PublisherName"
+                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherName"))"></GridColumn>
+                <GridColumn ColumnTitle="City"
+                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "City"))"></GridColumn>
+                
+                <GridColumn ColumnTitle="Actions"></GridColumn>
+            </GridColumns>
+            <GridRow Context="publisher">
+                <td>@publisher.PubId</td>
+                <td>@publisher.PublisherName</td>
+                <td>@publisher.City</td>
+                <th>
+                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
+                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
+                </th>
+            </GridRow>
+
+        </GridView>
+    }
+    else
+    {
+        <NoResultMessage></NoResultMessage>
+    }
+
+</div>
+
+@code {
+
+    public Publisher publisher { get; set; }
+    public List<Publisher> publisherList { get; set; }
+    public List<Publisher> filteredPublisherList { get; set; }
+    public string[] Cities { get; set; }
+    ElementReference publisherNameTextBox;
+
+    public bool IsVisible { get; set; }
+    public bool Result { get; set; }
+    public string RecordName { get; set; }
+    public bool ReloadList { get; set; }
+
+    protected override void OnInitialized()
+    {
+        publisher = new Publisher();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await LoadPublishers();
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task LoadPublishers()
+    {
+        publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("publishers/GetPublishers");
+
+        if (publisherList == null)
+        {
+            RefreshRequest refreshRequest = new RefreshRequest();
+            refreshRequest.AccessToken = await localStorageService.GetItemAsync<string>("accessToken");
+            refreshRequest.RefreshToken = await localStorageService.GetItemAsync<string>("refreshToken");
+
+            var user1 = await userService.RefreshTokenAsync(refreshRequest);
+            await localStorageService.SetItemAsync("accessToken", user1.AccessToken);
+
+            publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("authors/GetPublishers");
+        }
+
+        StateHasChanged();
+    }
+
+    private async Task SavePublisher()
+    {
+        if (publisher.PubId == 0)
+            await bookStoresService.SaveAsync("publishers/CreatePublisher", publisher);
+        else
+            await bookStoresService.UpdateAsync("publishers/UpdatePublisher", publisher.PubId, publisher);
+
+        await LoadPublishers();
+
+        Result = true;
+        IsVisible = true;
+
+        var publisherName = publisher.PublisherName;
+
+        RecordName = publisherName;
+
+        publisher = new Publisher();
+
+        //await JSRuntime.InvokeVoidAsync("saveMessage", firstName, lastName);
+        await JSRuntime.InvokeVoidAsync("setFocusOnElement", publisherNameTextBox);
+    }
+
+    private async Task DeletePublisher(int pubId)
+    {
+        await bookStoresService.DeleteAsync("publishers/DeletePublisher", pubId);
+
+        await LoadPublishers();
+
+        //throw new Exception("DeleteAuthor");
+    }
+
+    private void EditPublisher(Publisher argPublisher)
+    {
+        publisher = argPublisher;
+    }
+
+    private void OnPublisherSearchTextChanged(ChangeEventArgs changeEventArgs, string columnTitle)
+    {
+        string searchText = changeEventArgs.Value.ToString();
+
+        ReloadList = true;
+
+        switch (columnTitle)
+        {
+            case "PublisherId":
+                filteredPublisherList = publisherList.Where(pub => pub.PubId.ToString().Contains(searchText)).ToList();
+                break;
+            case "PublisherName":
+                filteredPublisherList = publisherList.Where(pub => pub.PublisherName.ToLower().Contains(searchText)).ToList();
+                break;
+            case "City":
+                filteredPublisherList = publisherList.Where(pub => pub.City.ToLower().Contains(searchText)).ToList();
+                break;
+            default:
+                Console.WriteLine("Default case");
+                break;
+        }
+
+        StateHasChanged();
+    }
+}
