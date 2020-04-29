@@ -43,35 +43,46 @@
 <br />
 <div class="col-12">
     <h3><b>Publishers</b></h3>
-    @if (filteredPublisherList != null)
-    {
-        <GridView Items="filteredPublisherList">
-            <GridColumns>
-                <GridColumn ColumnTitle="PublisherId"
-                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherId"))"></GridColumn>
-                <GridColumn ColumnTitle="PublisherName"
-                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherName"))"></GridColumn>
-                <GridColumn ColumnTitle="City"
-                            OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "City"))"></GridColumn>
-                
-                <GridColumn ColumnTitle="Actions"></GridColumn>
-            </GridColumns>
-            <GridRow Context="publisher">
-                <td>@publisher.PubId</td>
-                <td>@publisher.PublisherName</td>
-                <td>@publisher.City</td>
-                <th>
-                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
-                    <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
-                </th>
-            </GridRow>
+    <SpinLoader IsLoading="isLoading">
+        <LoadingTemplate>
+            <div class="col-12" style="background-color: lightgray; height:400px; vertical-align:middle">
+                <br /><br />
+                <Chase Center="true" Color="#c21f13" Size="70px"></Chase>
+            </div>
+        </LoadingTemplate>
+        <ContentTemplate>
+            @if (filteredPublisherList != null)
+            {
+                <GridView Items="filteredPublisherList">
+                    <GridColumns>
+                        <GridColumn ColumnTitle="PublisherId"
+                                    OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherId"))"></GridColumn>
+                        <GridColumn ColumnTitle="PublisherName"
+                                    OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "PublisherName"))"></GridColumn>
+                        <GridColumn ColumnTitle="City"
+                                    OnSearchTextChanged="@(e => OnPublisherSearchTextChanged(e, "City"))"></GridColumn>
 
-        </GridView>
-    }
-    else
-    {
-        <NoResultMessage></NoResultMessage>
-    }
+                        <GridColumn ColumnTitle="Actions"></GridColumn>
+                    </GridColumns>
+                    <GridRow Context="publisher">
+                        <td>@publisher.PubId</td>
+                        <td>@publisher.PublisherName</td>
+                        <td>@publisher.City</td>
+                        <th>
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => EditPublisher(publisher))">Edit</a> |
+                            <a style="text-underline-position:below; cursor:pointer; color:blue" @onclick="(() => DeletePublisher(publisher.PubId))">Delete</a>
+                        </th>
+                    </GridRow>
+
+                </GridView>
+            }
+            else
+            {
+                <NoResultMessage></NoResultMessage>
+            }
+
+        </ContentTemplate>
+    </SpinLoader>
 
 </div>
 
@@ -87,6 +98,7 @@
     public bool Result { get; set; }
     public string RecordName { get; set; }
     public bool ReloadList { get; set; }
+    bool isLoading = true;
 
     protected override void OnInitialized()
     {
@@ -96,13 +108,20 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
+        {
             await LoadPublishers();
+
+            isLoading = false;
+            StateHasChanged();
+        }
 
         await base.OnAfterRenderAsync(firstRender);
     }
 
     private async Task LoadPublishers()
     {
+        await Task.Delay(500);
+
         publisherList = filteredPublisherList = await bookStoresService.GetAllAsync("publishers/GetPublishers");
 
         if (publisherList == null)

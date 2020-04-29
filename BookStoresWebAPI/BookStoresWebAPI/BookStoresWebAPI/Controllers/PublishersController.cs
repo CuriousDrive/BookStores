@@ -13,8 +13,6 @@ namespace BookStoresWebAPI.Controllers
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [ApiVersion("1.0")]
-    [ApiVersion("2.0")]
     public class PublishersController : ControllerBase
     {
         private readonly BookStoresDBContext _context;

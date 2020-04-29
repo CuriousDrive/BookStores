@@ -18,8 +18,12 @@ else
     <h3><b>User is logged out</b></h3>
 }
 
-@code {
+<p>Hello World - Test @Count</p>
 
+
+
+@code {
+    
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
     ClaimsPrincipal user;
@@ -27,6 +31,8 @@ else
     bool IsUserAuthenticated;
     bool IsPublisher;
     bool IsSeniorEmployee;
+
+    public int Count { get; set; } = 300;
 
     protected override async Task OnInitializedAsync()
     {

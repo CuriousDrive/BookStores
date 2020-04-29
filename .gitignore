@@ -18,3 +18,7 @@
 **/BookStoresWebAPI/BookStoresWebAPI/.vs
 **/BookStoresWebAPI/BookStoresWebAPI/BookStoresWebAPI/bin
 **/BookStoresWebAPI/BookStoresWebAPI/BookStoresWebAPI/obj
+**/BookStoresWebAPI/BookStoresWebAPI/Properties/
+
+**/Publish/
+/BlazorServerApp/BlazorServerApp/Properties/PublishProfiles
