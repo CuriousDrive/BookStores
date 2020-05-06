@@ -60,7 +60,7 @@ namespace BlazorServerApp
             {
                 options.AddPolicy("SeniorEmployee", policy => 
                     policy.RequireClaim("IsUserEmployedBefore1990","true"));
-            });            
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +83,7 @@ namespace BlazorServerApp
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();            
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
