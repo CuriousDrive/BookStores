@@ -1,5 +1,6 @@
 ﻿@using BlazorServerApp.Data
 @inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 <div class="sidebar">
@@ -30,5 +31,6 @@
     public async Task Logout()
     {
         await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
+        NavigationManager.NavigateTo("");
     }
 }

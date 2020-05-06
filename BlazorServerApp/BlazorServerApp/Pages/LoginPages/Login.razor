@@ -50,11 +50,18 @@
     protected async override Task OnInitializedAsync()
     {
         user = new User();
-        
+
         claimsPrincipal = (await authenticationStateTask).User;
 
         if (claimsPrincipal.Identity.IsAuthenticated)
-            NavigationManager.NavigateTo("/index");        
+        {
+            NavigationManager.NavigateTo("/index");
+        }
+        {
+            user.EmailAddress = "philip.cramer@gmail.com";
+            user.Password = "philip.cramer";
+        }
+
     }
 
     private async Task<bool> ValidateUser()
