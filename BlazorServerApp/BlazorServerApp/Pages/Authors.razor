@@ -237,7 +237,7 @@
 
     private async Task DeleteAuthor(int authorId)
     {
-        await bookStoresService.DeleteAsync("authors/DeleteAuthor", authorId);
+        await bookStoresService.DeleteAsync("authors/DeleteAuthor/", authorId);
         await LoadAuthors();
 
         //throw new Exception("DeleteAuthor");

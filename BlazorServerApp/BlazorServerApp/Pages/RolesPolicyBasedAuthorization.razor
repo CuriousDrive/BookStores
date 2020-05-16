@@ -1,9 +1,10 @@
-﻿@page "/counter"
+﻿@page "/authorization"
 @inject IAuthorizationService authorizationService
 
-<h1>Counter</h1>
-
+<h1>Roles and Policy Based Authorization</h1>
+<br />
 <button class="btn btn-primary" @onclick="FindOutAboutUser">Find Out About User</button>
+<br />
 <br />
 <label>Is User a Publisher : <b>@IsUserPublisher</b></label>
 <label>Is a Senior : <b>@IsSeniorEmployee</b></label>
@@ -17,8 +18,7 @@
     bool IsSeniorEmployee;
 
     private async Task FindOutAboutUser()
-    {
-        
+    {       
         
         var user = (await authenticationStateTask).User;
 
