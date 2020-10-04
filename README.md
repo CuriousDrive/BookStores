@@ -1,10 +1,35 @@
-## What is it?
+## BookStores?
 
 BookStores is a getting started template for .NET developers. It takes care of authentication and authorization so that you can concentrate on your business logic. Also it has some sample pages showing how you can bridge the gaps between Database + API + UI layers in the project. If you are looking for a head start then you are in luck.
 
-## Architecture
+## Installation
 
-It uses SQL Express for storing the data, ASP.NET Core Web API for business layer and Blazor Server App as a client. The Web API project uses Entity Framework Core for performing database related operations. 
+### Prerequisites
+
+- IDE - Visual Studio or VS Code
+- Framework - .NET Core 3.0 or Greater
+- Database - SQL Express/Server
+
+### Clone
+
+- Clone this repo to your local machine using `https://github.com/CuriousDrive/BookStores.git`
+
+### Setup
+
+> BookStores Database
+- Create database `BookStoresDB` in SQL Express/Server
+- To create the data run SQL query from `BookStores/Database/GenerateData.sql` 
+
+> BookStores Web API
+- Open project `BookStores/BookStoresWebAPI/BookStoresWebAPI.sln`
+- Run Project through Visual Studio/Terminal
+- Go to `https://localhost:5001/swagger` or `https://localhost:44315/swagger`
+
+> Blazor Server App
+- Open Project ` BookStores/BlazorServerApp/BlazorServerApp.sln`
+- Run Project through Visual Studio/Terminal
+- Go to `https://localhost:6001/` or `https://localhost:44391/swagger`
+- Click on login. You should get logged in as `philip.cramer@gmail.com`
 
 ## Videos
 
