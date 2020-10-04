@@ -22,3 +22,6 @@
 
 **/Publish/
 /BlazorServerApp/BlazorServerApp/Properties/
+/BookStoresWebAPI/BookStoresWebAPI/.config
+/BookStoresWebAPI/BookStoresWebAPI/obj
+/BookStoresWebAPI/BookStoresWebAPI/bin/Debug/netcoreapp3.1
