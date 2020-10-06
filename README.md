@@ -1,6 +1,8 @@
-## BookStores?
+## BookStores
 
-BookStores is a getting started template for .NET developers. It takes care of authentication and authorization so that you can concentrate on your business logic. Also it has some sample pages showing how you can bridge the gaps between Database + API + UI layers in the project. If you are looking for a head start then you are in luck.
+BookStores is a getting started template for Blazor developers. It takes care of authentication and authorization so that you can concentrate on your business logic. Also it has some sample pages showing how you can bridge the gaps between Database + API + UI layers in the project. If you are looking for a head start then you are in luck.
+
+![Demo_App](https://github.com/CuriousDrive/BookStores/blob/master/Documents/Intro.gif)
 
 ## Installation
 
@@ -41,7 +43,7 @@ https://www.youtube.com/playlist?list=PL4WEkbdagHIQVbiTwos0E38VghMJA06OT
 Blazor Server Tutorials ->
 https://www.youtube.com/playlist?list=PL4WEkbdagHIR0RBe_P4bai64UDqZEbQap
 
-## Contact Us
+## Have questions?
 
 If you have any questions on how this project is setup then you can reach out to us on below handles.
 
@@ -50,6 +52,5 @@ https://twitter.com/curious_drive
 https://www.facebook.com/curiousdrive/
 
 https://www.youtube.com/c/curiousdrive
-
 
 Let us know how it goes. 
