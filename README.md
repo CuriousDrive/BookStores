@@ -35,22 +35,19 @@ BookStores is a getting started template for Blazor developers. It takes care of
 
 ## Videos
 
-The best part about BookStores that it's been documented when it was getting built. Please check out below videos if you wish to build your own project from the scratch.
+The best part about BookStores that it's been documented while it was getting built. Please check out below videos if you wish to build your own project from the scratch.
 
-ASP.NET Core Web API Tutorials ->
-https://www.youtube.com/playlist?list=PL4WEkbdagHIQVbiTwos0E38VghMJA06OT
-
-Blazor Server Tutorials ->
-https://www.youtube.com/playlist?list=PL4WEkbdagHIR0RBe_P4bai64UDqZEbQap
+| Video Series | Topics |
+| ----- | ---- |
+| [Start Watching](https://www.youtube.com/playlist?list=PL4WEkbdagHIQVbiTwos0E38VghMJA06OT) | ASP.NET Core Web API Tutorials  |
+| [Start Watching](https://www.youtube.com/playlist?list=PL4WEkbdagHIR0RBe_P4bai64UDqZEbQap) | Blazor Server Tutorials |
 
 ## Have questions?
 
 If you have any questions on how this project is setup then you can reach out to us on below handles.
 
-https://twitter.com/curious_drive
-
-https://www.facebook.com/curiousdrive/
-
-https://www.youtube.com/c/curiousdrive
+https://twitter.com/curious_drive <br />
+https://www.facebook.com/curiousdrive/ <br />
+https://www.youtube.com/c/curiousdrive <br />
 
 Let us know how it goes. 
