@@ -30,7 +30,7 @@ BookStores is a getting started template for Blazor developers. It takes care of
 > Blazor Server App
 - Open Project ` BookStores/BlazorServerApp/BlazorServerApp.sln`
 - Run Project through Visual Studio/Terminal
-- Go to `https://localhost:6001/` or `https://localhost:44391/swagger`
+- Go to `https://localhost:6001/` or `https://localhost:44391/`
 - Click on login. You should get logged in as `philip.cramer@gmail.com`
 
 ## Videos
