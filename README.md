@@ -1,6 +1,10 @@
 ## BookStores
 
-BookStores is a getting started template for Blazor developers. It takes care of authentication and authorization so that you can concentrate on your business logic. Also it has some sample pages showing how you can bridge the gaps between Database + API + UI layers in the project. If you are looking for a head start then you are in luck.
+BookStores is a Blazor Server app using ASP.NET Core as back-end service and MSSQL for database. 
+
+It has code samples for Authentication, Authorization, DataGrid, Database operations....and much. 
+
+Please follow the intrsuctions to set it up on your machine. 
 
 ![Demo_App](https://github.com/CuriousDrive/BookStores/blob/master/Documents/Intro.gif)
 
