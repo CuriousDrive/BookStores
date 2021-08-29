@@ -2,7 +2,7 @@
 
 BookStores is a Blazor Server app using ASP.NET Core as back-end service and MSSQL for database. 
 
-It has code samples for Authentication, Authorization, DataGrid, Database operations....and much. 
+It has code samples for Authentication, Authorization, DataGrid, Database operations....and much more. 
 
 Please follow the intrsuctions to set it up on your machine. 
 
